@@ -7,12 +7,19 @@ const axios = require('axios')
 const JSON = require('circular-json');
 var request = require('request');
 var rp = require('request-promise');
-const initial_data = require('../send_data_to_db')
+const initial_data = require('../functions/send_data_to_db')
 var header = require("../functions/headers")
 
 
 router.get('/flipkart', function(req,res){
-    const search = "ps4 games " 
+    //const search = "xbox games" 
+    const search = req.query.searchId
+    if (search == undefined){
+        res.send(JSON.stringify({"message":"this is an API, not a regular webpage.",
+            "how_to_access_it":"http://sitename/flipkart?searchId=product name",
+            "sample_search":"http://sitename/flipkart?searchId=ps4 games" }))
+        return
+    }
     const ip = req.ip
     const site = "flipkart.com" 
     let user = new initial_data(ip, search, site)

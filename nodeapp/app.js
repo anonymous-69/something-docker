@@ -15,7 +15,7 @@ const app = express()
 
 
 
-mongoose.connect('mongodb:27017/docker-node-mongo', 
+mongoose.connect('mongodb://mongo:27017/docker-node-mongo', 
 	{ useNewUrlParser:true }) 
 .then(() => console.log("connected to mongodb"))
 .catch(err =>console.log(err))
@@ -33,7 +33,9 @@ app.use(function( req,res,next){
 });
 
 
-
+app.get('/', function(req, res,next){
+	res.send(JSON.stringify({"message":"this is an API, not a regular webpage."}))
+})
 
 
 

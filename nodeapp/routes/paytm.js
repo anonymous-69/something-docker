@@ -8,7 +8,7 @@ const JSON = require('circular-json');
 const request = require('request');
 const  rp = require('request-promise')
 const  date = require('date-and-time');;
-const initial_data = require('../send_data_to_db')
+const initial_data = require('../functions/send_data_to_db')
 var header = require("../functions/headers")
 
 
@@ -17,7 +17,14 @@ router.get('/paytm',function(req,res,next){
     console.log("hitting paytm route")
     //Saving the IP, search term and the site name in the databse. 
     let site = "paytm.com"
-    const search = "gaming headphones"
+    //const search = "gaming headphones"
+    const search = req.query.searchId
+    if (search == undefined){
+        res.send(JSON.stringify({"message":"this is an API, not a regular webpage.",
+            "how_to_access_it":"http://sitename/paytm?searchId=product name",
+            "sample_search":"http://sitename/paytm?searchId=ps4 games" }))
+        return
+    }    
     const ip = req.ip
     let user = new initial_data(ip, search, site)
     user.user()

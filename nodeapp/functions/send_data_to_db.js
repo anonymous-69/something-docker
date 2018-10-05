@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
-const keys = require("./config/keys")
-var data_model = require("./Models/db_model");
+const keys = require("./../config/keys")
+var data_model = require("./../Models/db_model");
 const date = require('date-and-time');
 
 

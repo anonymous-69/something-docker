@@ -43,7 +43,11 @@ function find_qid_value(amazon_webpage_response){
 }
 
 
+function urldecode(str) {
+   return decodeURIComponent((str+'').replace(/ /g, '+'));
+}
 
 
+module.exports.urldecode= urldecode
 module.exports.find_qid_value = find_qid_value
 module.exports.find_rh_value = find_rh_value

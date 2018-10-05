@@ -10,9 +10,10 @@ const pretty = require('pretty');
 const rp = require('request-promise');
 
 //Importing the functions and classes. 
-const initial_data = require('../send_data_to_db')
+const initial_data = require('../functions/send_data_to_db')
 const find_rh_value = require('../functions/amazon_functions_webpage')
 const find_qid_value = require('../functions/amazon_functions_webpage')
+const urldecode = require('../functions/amazon_functions_webpage')
 const json_key_with_data = require('../functions/amazon_functions_api')
 const escaping_characters = require('../functions/amazon_functions_api')
 const ratings = require('../functions/amazon_functions_api')
@@ -28,14 +29,21 @@ const header = require("../functions/headers")
 router.get('/amazon', function(req, res,next){
     console.log("Hitting amazon API")
     //saving ip, search term, time and website in db. 
-    let search = 'water bottles'
+    //let search = 'water bottles'
+    const search = req.query.searchId
+    const search_term = urldecode.urldecode(search)
     const ip = req.ip
     const site = "amazon.in" 
     let user = new initial_data(ip, search, site)
     user.user()
-
+    if (search == undefined){
+        res.send(JSON.stringify({"message":"this is an API, not a regular webpage.",
+            "how_to_access_it":"http://sitename/amazon?searchId=product name",
+            "sample_search":"http://sitename/amazon?searchId=ps4 games" }))
+        return
+    }   
  
-    let url_amazon =  `https://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=${search}`
+    let url_amazon =  `https://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=${search_term}`
     let headers = header.headers.amazon_headers 
 
     rp({
@@ -52,7 +60,7 @@ router.get('/amazon', function(req, res,next){
         var rh_value = find_rh_value.find_rh_value(response,search)
         var qid_value = find_qid_value.find_qid_value(response) 
         let fromHash = encodeURIComponent("ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=books+")
-        let url =  `https://www.amazon.in/mn/search/ajax/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=${search}+&rh=${rh_value}&fromHash=${fromHash}&section=ATF,BTF&fromApp=gp%2Fsearch&fromPage=results&fromPageConstruction=auisearch&version=2&oqid=${qid_value}&atfLayout=list`
+        let url =  `https://www.amazon.in/mn/search/ajax/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=${search_term}+&rh=${rh_value}&fromHash=${fromHash}&section=ATF,BTF&fromApp=gp%2Fsearch&fromPage=results&fromPageConstruction=auisearch&version=2&oqid=${qid_value}&atfLayout=list`
 
     let response2 = axios({
         method: 'post',

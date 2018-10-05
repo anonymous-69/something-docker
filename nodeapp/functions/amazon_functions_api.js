@@ -4,7 +4,7 @@ const Regex = require('regex');
 const axios = require('axios')
 const JSON = require('circular-json');
 const pretty = require('pretty');
-const initial_data = require('../send_data_to_db')
+const initial_data = require('../functions/send_data_to_db')
 
 
 //scrapping the key having most of the products. 
