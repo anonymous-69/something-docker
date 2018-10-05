@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    image: emilevauge/whoami
+    environment:
+      - VIRTUAL_HOST=local.docker.whoami.com
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

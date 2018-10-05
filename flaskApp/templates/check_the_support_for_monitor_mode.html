@@ -1,0 +1,76 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+			
+<h1>Check if your wireless card supports monitor mode for Aircrack-ng and Wireshark?</h1>
+
+
+<img  src="static/check_the_support_for_monitor_mode/final.png" class="img-fluid" style="width:800px;height:600px ;padding-top:40px; padding-bottom:40px ">
+
+
+<p>Hi guys, how are you all doing ?<br> <br>
+This will be a fairly small article, that aims to help you figure out whether your Wifi card supports the monitor mode. It can be really disheartening when you install wireshark, hoping to capture packets but you end up capturing the packets your PC sent to the Internet. But don’t you worry guys, I got you covered! </p>
+
+<h2>What is monitor mode? </h2>   
+<p>
+Before rushing to the solution, lets first understand what monitor mode is? Monitor mode allows all the computers to capture all the packets from the wireless network without being associated with an access point. In layman’s terms, it allows you to capture all the packets in the air, irrespective of whether you are connected to a particular WiFi or not. 
+</p>
+<h2>
+Checking support for the monitor mode. </h2>
+
+<p> 
+For checking this, we need to install iw. This will be helping us check our WiFi adapter capabilities. </p>
+
+Installing on Linux <br>
+<img  src="static/check_the_support_for_monitor_mode/installing_iw.png" class="img-fluid" style="width:800px;height:600px padding-top:40px; padding-bottom:40px ">
+
+
+<br>
+I have installed it on debian and it worked out of the box <br>
+<br>
+
+<h3><b>sudo apt-get install iw </b></h3>
+<br>
+on arch based distributions-  
+
+<h3><b>sudo pacman -S iw </b></h3>
+ <br>
+Now in the command line, type- 
+
+<h3><b>sudo iw list </b></h3>
+<br>
+<p>This will be giving you a long list of features supported by your network card like bit rates, supported interface modes frequencies, device supports, etc. But what we are concerned about is the supported interface modes. There you will be finding all the modes supported and if there is a monitor mode, congratulations, you are good to go! </p>
+
+<img  src="static/check_the_support_for_monitor_mode/monitor_mode_proof.png" class="img-fluid" style="width:800px;height:600px padding-top:40px; padding-bottom:40px ">
+
+
+<h2>Troubleshooting/ Things to be kept in mind  </h2>
+<ul>
+<li>Even though wireless card supports the monitor mode, but you still have to turn that on. <b>There are some settings that you need to tinker around with inorder to turn the managed mode on. </b>
+
+</li>
+
+<li>This command will produce any out put on the virtual box and the virtual box can’t really interact with the hardware of your PC. This is the screenshot of me running it on Kali Linux, which is running on the Virtual Box.
+
+<img  src="static/check_the_support_for_monitor_mode/virtualboxf.png" class="img-fluid" style="width:800px;height:600px padding-top:40px; padding-bottom:40px ">
+
+
+</li>
+
+<li> You have to run it as <b>sudo,</b> otherwise, you will bet an error like <b>“ command not found ”.</b>
+</li>
+
+<li>Generally, 80% of the wireless card supports monitor mode. You don’t need to have $20 wireless card to use the monitor mode. If you are using a laptop, there are pretty high chances that your wireless card will have monitor mode, unless the manufactures try doing cost cutting by putting in some cheap wireless cards.</li>
+<br>
+<br>
+<p><i>
+If something is not working, comment them in the comments below. I will try to help you there. 
+Thank you guys for sticking around in this article and I hope to see you in my next post. 
+<br>
+<br>
+<br>
+
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.</i></p>
+</div>
+{% endblock %}
+

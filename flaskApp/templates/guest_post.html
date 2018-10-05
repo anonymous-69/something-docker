@@ -1,0 +1,204 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block styles %}
+
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href={{ url_for('static', filename="assets/css/main.css") }} />
+		
+{% endblock %}
+
+{% block content %}
+
+<header id="header">
+    <div class="inner">
+        <a href= "{{ url_for('index') }}" class="logo">Boot Up the Geek</a>
+        <nav id="nav">
+            
+            <a href= "{{ url_for('linux') }}">linux</a>
+            <a href= "{{ url_for('android1') }}">Android</a>
+            <a href= "{{ url_for('hacking_tutorials') }}">Cyber Security</a>
+            <a href= "{{ url_for('news') }}">tech News</a>
+            <a href= "{{ url_for('submitted_posts') }}">User Posts</a>
+            <a href= "{{ url_for('form') }}">Submit Posts</a>
+  
+
+        </nav>
+        
+    </div>
+</header>
+<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+
+
+
+
+<!-- Main -->
+<section id="main" >
+    <div class="inner">
+        <header class="major special">
+                <div  class="row">
+                        <div class="col-md-9">
+   
+
+
+        <div align="center"><h1><font size="9" >{{ post.title }}</font></h1></div>     
+
+        <font size="4" ><b style= "color:black">Posted on {{ post.date_posted }} By {{ post.author }}</b></font>
+
+        <div>
+             <font size="5">   {{ post.post | safe }} </font>
+        </div>
+
+
+        <div style="border-style: solid;  border-width: 5px">
+            <h3>About {{ post.author }} </h3>
+                <p>
+                    {{post.AuthorDescription | safe}}
+                </p>
+
+        </div>
+
+
+
+
+    </div>
+	
+	
+    <div class="col-md-3" >  
+    
+    
+    <div style= "padding:30px; font-size : 16px">
+    
+               <h4><b>Also from Boot Up the Geek </b></h4>
+               <a href= "{{ url_for('rooting_popularity_down') }}" > 
+               <ul>
+               <li>	Why has rooting become less popular over the years?</li>
+               </a>
+               <br>
+               
+               <a href= "{{ url_for('cookies_part1') }}"> 
+               <li>	Cookies -Part 1 (Introduction to Cookies)</li>
+               </a>
+               <br>
+               
+               <a href= "{{ url_for('end_to_end_encryption') }}"> 
+                   <li>	End to End Encryption</li>
+               </a>
+               <br>
+               
+           <a href= "{{ url_for('different_de_experience') }}"> 
+               <li>	My Experience with different Desktop Environment</li>
+               </a>
+               <br>
+               
+               <a href= "{{ url_for('Should_You_Install_Kali_Linux_as_a_Beginner') }}"> 
+               <li>		Should You Install Kali Linux as a Beginner ?</li>
+               </a>
+               <br>
+               
+               <a href= "{{ url_for('VB_or_dualboot') }}"> 
+               <li>	Beginner’s guide to install Linux – VirtualBox vs DualBoot</li>
+               </a>
+               <br>
+               
+           
+               <a href= "{{ url_for('is_your_prone_to_hacking') }}"> 
+               <li>	Is your Phone Hacked?</li>
+               </a>
+               <br>
+               
+               <a href= "{{ url_for('public_key_encryption') }}"> 
+               <li>		Public Key Cryptography</li>
+               </a>
+               <br>
+               
+               
+               <a href= "{{ url_for('check_the_support_for_monitor_mode') }}"> 
+               <li>	Check if your wireless card supports monitor mode for Aircrack-ng and Wireshark?  </li>
+               </a>
+               <br>
+               
+               </div>
+            </div>
+            
+    
+                    </div>
+        </div>
+    </header>
+    </section>
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Footer -->
+    <section id="footer">
+        <div class="inner">
+            <header align = center>
+                <h2>You've reached the end!</h2>
+            </header>
+                       <div class="row" id = "color_footer">
+      
+        <div class="col-md-6" >
+    
+    
+        <ul>
+          
+           <b><li><div class="grey-text text-lighten-3" >Contact: bootupthegeek@gmail.com</div></li></b>
+            <b> <li><a class="grey-text text-lighten-3" href="{{ url_for('disclamer') }}">Disclamer</a></li></b>
+        </ul>
+      </div>
+     <div class="col-md-6" >
+        
+        <ul>
+          <b><li><a class="grey-text text-lighten-3" href="{{ url_for('sitemap_bing') }}">Site Map</a></li></b>
+          <b><li><a class="grey-text text-lighten-3" href="{{ url_for('private_policy') }}">Privacy Policy</a></li></b>
+    
+        </ul>
+      </div>
+    </div>
+                   <div class="footer-copyright">
+    <div align= left>
+    <b> ©COPYRIGHT 2017 Boot Up the Geek </b>
+    
+    </div>
+    </div>
+        </div>
+    </section>
+    
+    
+    
+    {% block scripts %}
+    {{super()}}
+    
+    <script src="//cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+    <script>CKEDITOR.replace( 'post' );</script>
+    <script>CKEDITOR.replace( 'AuthorDescription' );</script>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/js/skel.min.js"></script>
+    <script src="static/assets/js/util.js"></script>
+    <script src="static/assets/js/main.js"></script>
+
+
+    
+
+
+{% endblock %}
+    
+
+
+{% endblock %}
+    

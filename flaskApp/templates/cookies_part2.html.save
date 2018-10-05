@@ -1,0 +1,47 @@
+{% extends "register.html" %}
+			{% block body %}
+			
+
+<div style = " font-style: Courier New ; font-size : 22px " >
+	  
+<h1><b> Cookies -Part 2  (cookies tracking )  </b></h1>
+<br>
+
+<img src="static/cookies_part2/final.jpg"style="width:800px;height:600px padding-top:40px; padding-bottom:40px ">
+
+<p>Welcome back geeks! Hope you liked the first article that I have posted. 
+What cookies basically do is spy on you. First party cookies track you only on their site for optimized user experience. <b>But third party cookies track you across the web.</b> This sound both scary and kinda creepy, in fact it is. The websites which have banner adverts will give your browser a cookie, which will track you across the web.<br>
+The thing is that whether a cookie is 1st party or 3rd party depends on which domain you are visiting. In other words,<b> if the cookie is associated with the domain you are visiting, it’s the 1st party cookie. Otherwise, it’s a 3rd party cookie.</b> </p><br>
+<h2><b>How first party cookies work ? </b></h2>
+
+<p>This is what it is, you are sitting on your computer, and you make a request to a server , the server will provide you with information you asked for and give you a cookie.<b> This cookie will track you , but only the their site for better user experience.</b> In this case cookie is acting as a ‘good guy ’
+</p><br>
+<h2><b>How does Third party cookies work? </b></h2> 
+
+<p>Suppose you visit a site like cake.com. This site will be giving you a cookie along with the information you asked for. That would be for better user experience and theses cookies would only come into play only when you visit cake.com .<br><br>
+
+But the ad banners in this site are from completely different part of the world and are having different domains. Theses are companies that are selling up the ads. They are constantly sending cookies for tracking you on the web. Now all of these advertising ads know that you came on this site, and start to talk to each other and form an <b>advertising network.</b> </p>
+<img src="static/cookies_part2/self1.jpeg"style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p>The count of these adverts is way more higher on torrent and porn sites.
+All these millions of sessions can be analyzed to understand your behaviors , what sites you visit , how much time do you spend on a particular website. </p>
+<br>
+<h2><b>What do these advertising company really want? </b></h2>
+ <p>What theses advertisers really want is much more than just tracking you. <b>They will be interested in gender , age group of the people seeing this add . They would be interested in how long did you looked at an advert and what was your reaction after looking on an advert . This is all very precious information for them.</b> </p><br> 
+<p><b>Affective computing</b> is a field in computer science that develops system and devices that can interpret your emotions and reaction  . Due to advancement in the field of affective computing , we are soon going to see it being applied with advertising . That means , they will be able to know your reaction when you saw the advert , and scares the fuck out of me . There are some some articles on Google implementing both the fields together. </p>
+
+<p><i>If you have some trouble understanding some topic, leave a comment below. I would happy to hear from all you guys . <br>
+In the last part, I will be discussing about the difference between Third Party cookies and First Party Cookies . Do check that out.<br>
+Have a nice day. Cheers! <br>
+<h3><b>
+<a href= "{{ url_for('cookies_part3') }}"> Cookies -Part 3 (Third party cookies vs First party cookies and Identifying cookies on a site ) </a><br><br>
+
+<a href= "{{ url_for('cookies_part3') }}"> Cookies -Part 1 (Introduction to Cookies) </a>
+</b></h3>
+<br><br><br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i>
+</p>
+
+</div>
+		{% endblock %}

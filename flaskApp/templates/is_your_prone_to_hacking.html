@@ -1,0 +1,80 @@
+
+{% extends "register.html" %}
+			{% block body %}
+
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1><b>Is your Phone Hacked? </b></h1>
+
+<img src="static/is_your_prone_to_hacking/hacking.jpg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p> With phone becoming more powerful, we tend to keep most of our sensitive data on our smartphones. Reminders of important meetings, passwords, and photographs you might have clicked on the weekends can all be leaked. And this type of leaks are more prone to occur on Android rather than iOS. <br>
+Android being open source and flexible, different manufacture tweak it to their liking and they might leave some backdoor while tweaking around with the code. Some do it intentionally in order to spy on their users for so called <b>“security purposes”</b>, while the others are just bad at programming . As Android is open-source, its code can be seen by anyone, and if a person happens to find some vulnerability, then the privacy of millions are at stake.<b> All these customization and flexibility do come at the price of your privacy. </b>
+</p><br>
+By the way, I have posted another post on <a href= "{{ url_for('keep_android_safe') }}">how to keep your Android device safe? </a> do check it out.
+
+<h2><b>What happens when your phone gets hacked? </b></h2>
+
+<p>Apart from all your data getting dumped over the Internet, there are couple of things that can possibly go wrong - 
+<ul>
+ <li>the hacker can tap your microphone and hear all your conversion. </li>
+<li>He can take snaps from the camera of your phone. We tend to take our phone everywhere, so many things can possibly go wrong. </li>
+<li> If you have a habit of keeping the location of your phone always on, then you can be easily be tracked. </li>
+</ul></p> 
+
+
+<h2><b>How can your information get leaked? </b></h2>
+
+<p>There is couple of ways this can be done, but I am gonna be mentioning some popular ones. Some of these hacks require physical contact with your phone and some of them happen when you install some malicious application over the Internet. 
+
+<ol>
+<li><b> keyloggers –</b>Keyloggers if you don’t know, records every key strokes you make on your phone and transmit it to the person who has installed it over the internet.
+If you happen to hand your phone to your creepy girlfriend/boyfriend, the chances are he might have installed it on your phone. </li>
+
+<img src="static/is_your_prone_to_hacking/keylogger.jpg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<li><b>apks -</b>The apks you install from the web to save a couple of bucks might have Trojans. Your app might run just fine, but in the background it might have installed a Trojan that is compromising your personal data. </li>
+<li> <b>Porn/Torrent websites -</b>When you visit some porn or  torrent website, there are a lot of banner ads and pop ups. These adverts leave a cookie on your browser and these cookies track you everywhere you go on the web. </li>
+<li> This point is related to the 4th  point. While browsing through the porn website,  you might get redirected to some app on the Google Play Store. This app will do no harm. Infact all the app on the Play Store are safe. But the thing is hackers might have found some vulnerability in that app and they what to get into your phone through that vulnerability in that application. </li>
+</ol>
+<h2><b>How to know if you are hacked? </b></h2>
+
+
+<ol>
+<li><b> Fast battery drainage -</b>If your battery is draining way more than usual, then you can go to battery usage and  then look if there is  some unusual app running in the background. ‘Android’ and ‘Android system’ are the system apps which handle things like system UI, FM radio, security etc. , apart from that, if there is some other application which you have not installed is consuming battery, then probably it is some.</li>
+
+<li><b>High network usage -</b>Watch out the network usage , and see if there is some unusual app that is sending and receiving some significant amount of data over the Internet. That app might be sending your keystrokes or the photos or some other data without your knowledge.
+There are many apps that are available on the Play Store that precisely measure your Internet traffic.</li>
+
+<li><b>Watch out if location services are consuming more battery that ever, it might be tracking your steps.</b></li>
+
+<li><b> pop-ups -</b>If you see 
+some random pop-ups on the phone when you haven’t opened some any app, it means that some app is running in the background . But if you see some pop-up when you are browsing on the net,  like one of those below, then don’t worry, it is normal, and you are completely safe.<br>  
+<img src="static/is_your_prone_to_hacking/update-google-android-safe-com.png" class="img-fluid" style="width:350px;height:300px; padding-top:40px; padding-bottom:40px "></li>
+
+  
+ <li><b>Overheating or random reboots -</b>Look if your phone is getting heated when you are performing some ordinary task, or the performance of your phone has decreased overnight. This might be because some tracking application is running in the background which is eating up resources. This is the reason why your phone will heat and probably restart itself. </li>
+</ol>
+<h2><b>Who is spying on you and why? </b></h2>
+
+
+<p>The Trojan or virus that comes  when you download some apk, is sold most of the time on darknet. Then the person doing this is <b>not interested in some specific person</b>, he is targeting a bigger population. And there are lot of crazy people out there who are willing to buy this information for millions of dollars. That's right, <b><i> when you don’t pay for a product, you are a product. </i></b>.
+<br><br>
+<b>There is no way you can find how you got the virus, but what you can do is be awake and uninstall it as soon as you find it. </b>
+
+<h2><b>Conclusion</b></h2> 
+
+<p>These are the small indications which most of the people to tend ignore, and end up getting their security compromised. As people tend to save most of the data on their phones, hacking them still remains one of the prior interest of a hacker. 
+We have also covered <a href= "{{ url_for('keep_android_safe') }}"> How to keep your Android phone safe? </a> Do check it out. 
+
+
+
+<br>
+<br><br><br>
+<i>If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i>
+</p>
+
+</div>
+
+{% endblock %}

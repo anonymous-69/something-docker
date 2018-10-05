@@ -1,0 +1,43 @@
+{% extends "register.html" %}
+			{% block body %}
+
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1><b>Why has rooting become less popular over the years?</b></h1>
+
+
+<img src="static/rooting_popularity_down/final.png"  style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">  
+
+<i><b>Disclaimer :</b>I am not discouraging anyone to root their phones. I am just presenting you my view point on why rooting has become unpopular. </i>
+<br>
+<br>
+In in the recent years, there have been a decline in the users rooting there phones. And here is the list of things that I believe, has led to this decline -
+Do note that they are not in any specific order. 
+
+<ol>
+<li><b>High performing SoC –</b>Back in the days, the SoC were not that powerful to play intensive games like Asphalt 8 or Nova 3. Some of them which played lagged a lot and sometimes even crash. Back then, overclocking processors to grab every bit of power left was a big deal.
+But now the times has changed, even a $150 smartphones lets you play intensive games without much noticeable lag. </li>
+
+<li><b>Increase in battery capacity –</b>The battery life of the smartphones have increased (not you iPhone!). Back then, if a phone had 3000 mAh it was a big deal, but now almost all the phones launched in 2017 have more that 3000 mAh battery capacity. </li>
+
+<li><b>Increase in storage capacity –</b>There was a time when the phones came 800 MB of storage, when the android phones just came to existence, but we are not traveling that roads.
+Lets talk about the time, when there were phone that came with 8 GB or 4GB of internal storage. And the usable space was like 2.5 GB and 5 GB respectively. People craved to install apps on SD card, which most of the manufactures denied. Hence rooting your device was the only way to go.  </li>
+
+<li><b>Heavy and sluggish user interface ( UI ) -</b>Back then, the companies used to put very terrible skins on their devices which disrupted the overall user experience of the phones. But most manufacturers have improved a lot recently, specially Samsung. I believe that was the primary reason, why people has stopped experimenting with their phones <br>
+Take my example, when I rooted my phone, it was only because wanted to get rid of the sluggish UI by install a custom ROM. </li> 
+</ol>
+<br><br>
+<p><i>There will surely be other reasons, why rooting has lost its popularity over the years. Lets meet in the comment section below and discuss more about this. As this is a very open ended topic, I would love to red what you guys think about. <br>
+If you have a query, you can put them in the form below the comment section. I’ll try to respond as soon as possible. <br>
+Thank you guys for sticking around in this article and I hope to see you in my next post. 
+<br>
+<br>
+<br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i></p>
+</div>
+
+
+{% endblock %}
+
+ 

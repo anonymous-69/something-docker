@@ -1,0 +1,104 @@
+{% extends "register.html" %}
+			{% block body %}
+			
+<div style = " font-style: Courier New ; font-size : 22px ">
+
+<h1><b>Secure Web Browsing -Part 2 ( How does HTTPS actually work ?) </b></h1>
+
+<p>Have you ever wondered how that padlock that you see in the address bar assure your safety?  What’s the piece of technology that really set HTTPS apart from HTTP and make it way more secure? Let us dig deeper into this! </p>
+
+<p>
+<i>I have covered <a href= "{{ url_for('Introduction_to_HTTP_and_HTTPS') }}"> Secure Web Browsing -Part 1 ( Introduction to HTTP and HTTPS)</a>, so if you haven’t already read it, check it out as I will be relating some topics from the part 1 </i></p>
+
+<h2><b>What is SSL/TLS? </b></h2>
+<img src="static/https_and_ssl/handwritten.jpeg"  class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+<br>
+<b>What differentiates HTTPS from being more secure than HTTP is SSL or TLS.</b>
+SSL and TLS stand for <b>Secure Socket Layer</b> and <b>Transport Layer Security</b> respectively.
+ Don’t get confused, they both mean the same thing, some books use the word SSL, while the others use TLS. 
+SSL works on the <a href= "{{ url_for('public_key_encryption') }}">public key cryptography</a>, which is a different topic by itself and I have covered it. I will try giving you a gist of it.
+
+<b>In public key cryptography, we generate a pair of keys, one is a public key and the other one is a private key. The files that you encrypt with you public key can only be decrypted only with your private key and Vice versa because “maths”.</b>  And when you go onto the Internet and send some request to the server, this is how the conversation occurs - 
+<br><br>
+<b>User – </b>Hi, I want to talk to your on a secure connection.  <br>
+<b>Server – </b>Okay, here is my <b>public key, encrypt your request </b>with my public key and send it to me.  <br>
+<b>User -</b> ** encrypts the data with server’s public key and send it to the server **
+<br><b>Server - </b>** it then decrypts the data with his private key and sends him the data he has asked for encrypted with his private key ** 
+   <br>      
+This looks perfect (even though it is not). <b>Even if there was a person in the network performing man in the middle attack, the traffic he will be capturing will all be encrypted and will look like noise. </b>
+<br>
+This is a screen shot of a packet. As it is encrypted, it looks like random words and letters.
+<br>
+<img src="static/https_and_ssl/noise.jpg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+<br>
+<h2><b>The flaw in the above method.</b></h2>
+<p>
+As some of you might have figured out, this method is far from being perfect. Sorry, I lied! 
+The problem is, when the server is sending his public key to the user, the network is not secure and anyone can perform<b> man in the middle attack</b> and get hold of the 
+server’s public key.</p> 
+
+(read this conversation between the <b>attacker performing man in the middle attack</b>, <b>server</b> and the <b>user</b> very carefully.) <BR><BR> 
+
+<b>User:</b>Hi, I want to have a secure connection with you. Can you send me your <b>public key?</b><br><BR>
+
+<b>Server:</b>    ** send his public key to the user  **<br><br>
+
+<b>attacker: </b> ** Get hold of the <b>server’s public key </b>that was supposed to be sent to the user and swap it with <b>his own public key </b> **<br><br>
+
+<b>user:  </b> **  Receives the <b>attacker’s public key.</b> He then <b>encrypts the request with attacker’s public key</b> and then send it to the server   **<br><br>
+
+<b>attacker: </b> ** the encrypted request to the server is first passes through the attacker and <b>he decrypts it with his private key</b> and then reads it and again 			<b>encrypt the request </b> with the <b>server’s public key </b> **<br><br>
+
+<b>Server:  </b> ** The server then decrypts the user’s request with<b> server’s private key</b> and then send the requested data, <b>encrypted with his private key  </b>**<br><br>
+
+<b>attacker:  </b>** He then decrypts the data <b>with server’s public key</b> and then reads it and  perhaps modify it and as he did in the start, he encrypts it with server’s public key and send it to the user  **<br><br>
+
+
+
+
+This is the <b>classic man in the middle attack.</b> No one knows that their session is been recorded. And of course, this is happening in the milliseconds. <b>The attacker is decrypting the data and then saving it in the text file and the encrypting it back. </b>
+
+<b>SSL certificates </b>
+
+The solution for the above mentioned problem is <b>SSL certificates.</b> The network is built on trust. The site’s certificate is signed by the <b>authorities with their own private key.</b>
+<b>Authorities</b> are the companies, which certify that the site you visit is legit which means that no one can change the packets in the middle and the request you are sending and receiving is coming from where it is intended to be. If the site is has an SSL certificate, you will see a <b>padlock</b> at your address bar. This certificate is what makes the site<b> secure.</b> 
+In layman’s terms, a site that has an SSL certificate is HTTPS and otherwise it HTTP.
+
+<h2><b>How does SSL certificate assure if the connection is secure?</b></h2>
+
+
+The SSL certificate is signed by the authorities for your website, with their own private key.
+
+Your web browser comes installed with the public keys of all of the major certificate authorities. Which basically include the 
+<ul>
+<li>validity of the certificate</li>
+<li>name of the authorities that signed the certificate</li>
+<li> public key</li>
+<li> domain name</li>
+<li> IP address of the server on which the site is hosted </li>
+</ul>
+
+
+When you request a secure connection to the server, the server sends <b>his public key</b> and the <b>certificate signed by the authority</b> claiming its authenticity ( meaning it is coming from the right server and none of the packets are manipulated). 
+Your browser will then show you that padlock sign and claim it to be secure and would decrypt the data into a human readable form. 
+
+If an attack changes one bit of those keys, the math doesn’t add up. You get a message in your browser that <b>the connection with this site is not secure. </b>
+
+
+
+<h2><b>What does signing the certificate really mean? </b></h2>
+<p>
+By now might be scratching your head thinking what really does signing the certificate really means?<br> 
+In a nut shell, these certificate authorities sign your website with their private key. And as I have told you earlier, when you download browser, you get the list of some  popular Certificate Authorities, along with their public key. Your browser unlocks the private key with the public key and then assures you that it is a certified site and you are safe while browsing the site.
+</p>
+<br>
+<p><i>
+I hope you like this series. It might be a lot to take in, but read it once again, and I assure, you will understand it completely. If you have some doubts, do post them in the comment section below, I will try helping you out there. 
+<br><br><br>
+
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.</i></p>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1><b>Beginner’s guide to install Linux – VirtualBox vs DualBoot</b></h1>
+
+<img src="static/VB_or_dualboot/final.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+Welcome back fellow geeks!<br> 
+If you have clicked on this post, chances are you were using Mac OS or Windows as your primary OS and you probably got sick of those expensive Macs or forced windows updates. 
+Or its your curiosity craving from inside, wanting to learn different OS, that bought you here to get your hands dirty with Linux. I assure you, you have come to right place.
+ <br><br>
+I’ll be completely honest with you, <b> there is some learning curve with regards to Linux.</B> But once you get used to, then only time you will think of using windows is in your deepest, darkest nightmare.
+
+<h2><b>Introduction to VirtualBox</b></h2>
+<p>
+Virtual Box is used for running the OS inside your primary OS . But the problem with it is that it consumes a lot of resources . When you install OS on a virtualbox, it asks for the amount of RAM, CPU’s cores, and the storage you want to allocate. And if you have a low spec PC, then it your PC might become non responsive.</p>
+
+<h2><b>Introduction to DualBoot </b></h2>
+<p>
+DualBoot if you don’t know,  means  running two operating system on a singe PC. When you boot up your PC, it will give you an option about which of the OS, you want to boot into. </p>
+
+<img src="static/VB_or_dualboot/DUALBOOT.png" class="img-fluid"  style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+<p>
+The important thing is that unlike Virtual Box, you don’t have to divide the resources between the two operating systems. So each OS utilize the full resources, but you can’t run them simultaneously. 
+</p>
+
+<h2><b>Reasons to install Linux in DualBoot? </b></h2>
+
+<p>When you install it on a VirtualBox, you will not be using it as your primary OS, and hence where will not much you could do with it. If you are a beginner, willing to learn Linux, then installing it on VirtualBox will not give you same amount of experience than installing in dualboot. </p>
+
+</p>Linux is not just about these basic commands that you learn at the start, there is so much more to it. When you install a Linux distributions, chances are you have to install the WiFi and bluetooth drivers by your self. It is a lot difficult than it sounds like, if you have a not so popular wireless card. There are certain applications, that require editing some configurations file, and If you are not using Linux as your primary OS, you will never a gist of it.</p>
+<p>
+That is what will make you dig deep down to the roots of the operating system and understand it better. And you should know how to solve these problems, running away from them would do no good.
+</p>
+<h2><b>Why you should install it on a VirtualBox?</b></h2>
+<ol>
+<li> If you want to do some crazy expeciment with OS like deleting the root directory using <b>‘sudo rm -rf / ’ </b> , then doing that VB make much more sense , as you could easily install a fresh Distributions without the loss of data and without much lesser headaches. </li>
+ 
+<li> Distributions which are specifically meant for penetration testing like Kali Linux and Parrot OS, are meant to be installed on the VirtualBox, which you can read more about by <a href= "{{ url_for('Should_You_Install_Kali_Linux_as_a_Beginner') }}">clicking here</a>
+</li>
+<li> If you are trying to find some vulnerabilities in some OS and are running some scripts on it, then using VirtualBox is the way to go. </li>
+</ul>
+<h2><b>Conclusion </b></h2>
+
+<p>If you want to dig deep into Linux, then I installing it in dualboot seems to be a better choice. I would never recommend VirtualBox as a way to start learning Linux.</p>
+<br>
+
+<p><i>Surely there will be some other important points that I might have missed. Lets meet in the comment section below and discuss them. If you have some query, you can drop them in the comments too. I will be reading all of them.<br>
+Thank you guys for sticking around in this article and I hope to see you in my next post. </i> </p>
+<br><br>
+
+<i>If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.</i>
+
+
+</div>
+			{% endblock %}
+			

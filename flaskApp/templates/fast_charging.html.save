@@ -1,0 +1,87 @@
+{% extends "register.html" %}
+			{% block body %}
+
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1><b>Your phone supports quick charge: Here is how you can enable it! </b></h1>
+
+<img src="static/fast_charging/final.png"  style="width:800px ; height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p>If your phone is having a Qualcomm SoC, chances are your phone is supporting quick charging. If you go to the qualcomm’s website, and look into the SoC’s specification, you will find that your phone actually support of quick charge. <br>
+Look in to the table below to check if your phone supports qualcomm quick charge 1 or 2 or 3. With quick charge 3 being the latest and most efficient and fast followed by 2 and 1.<br><br>
+
+I have discussed below, why it is difficult to enable quick charging If your phone has a mediaTek or exynos processor below. Do check it out. 
+</p>
+<h2><b>Why does the smartphone manufacturers doesn’t support quick charge out of the box? </b></h2>
+
+<p>If the manufacturers wants to enable quick charge on their phones, then for every chip they sell, they have to pay Qualcomm some amount. I am not sure about the amount, but it is somewhat like $6 per chip. <br>
+For the flagships, they tend to pay this amount. But refuse to do that for must budget phones. But don’t you worry, we have got you covered!
+  </p>
+
+<h2><b>Things to keep in mind before enabling Fast charging </b></h2>
+<ul>
+<li><b> Root required -</b> your phone should be rooted.</li>
+
+<li><b> Popular community support -</b>Your phone should have a popular community support. The custom kernels are made by the community. Hence the phones that are popular, tend to have a better community developing ROMS and kernels.
+You can go onto the XDA and check if your phone has custom kernels that support quick charging being developed for it.<br>
+
+Just to be clear, I am not asking your phone to be expensive. For example Moto G5 will have a better community support for any mid range Samung or HTC phones in the same segment.  </li>
+
+<li><b> Read comments - </b>You have to be very careful while selecting the kernels. If the kernel is corrupt, there is a chance you might end up bricking your phone. One way to check is see the comment section below the post, where you can see the views of everyone who has flashed it. </li>
+
+<li><b> Look for the bugs and instructions, the developer has mentioned in the post </b></li>
+
+</ul>
+<h2><b>How to enable quick charge on your phones? </b></h2>
+
+<p>To enable quick charge, we have to flash a custom kernel which has the support for fast charging. You can go onto the XDA forums and look for the kernel for your device. <br><br>
+
+Kernel is a piece of code what is responsible for the interaction between the software and hardware. When you press the power button, the screen turns off and if you press that button for long time, it then gives you the option to either shut down or reboot your device. Thats all because the kernel is coded to do so. <br><br>
+
+I can’t give share the link of the kernel as every phone will have a different custom kernel. </p>
+
+<b>These steps are for the TWRP recovery, as it is most popular one. In other recoveries , the steps will be similar in the other recoveries too.</b>
+
+			
+<img src="static/fast_charging/Flashing.png"  style="width:800px;height:700px; padding-top:40px; padding-bottom:40px ">
+
+<b>Step 1 –</b> Switch off your rooted phone and go to the TWRP recovery.<br>
+<b>Step 2 –</b> click on install <br>
+<b>Step 3 –</b>Select the kernel file you have downloaded from the XDA forums.<br>
+<b>Step 4 –</b> and then swipe to confirm. <br>
+<b>Step 5 -</b>It will start flashing and when it is done, you will see message saying “successful ’ <br>
+<b>Step 6 -</b>Click on the Reboot System <br>
+
+
+<h2><b>Exynos and MediaTek – why am I not talking about them? </b></h2> 
+
+<p>I am aware of the fact that MediaTek and Exynos supports fast charging, but the thing is the phones that launch with these processors doesn’t really have a popular community support. Some of them might have, but that’s not the case with the most phones. <br>
+Of course, Samsung’s flagship launched with Exynos will be having a lot of ROMS and Kernels built for it, but is fast charing in flagship. I don’t really think Samsung’s midrange having Exynos will have a custom kernel created.   </p>
+
+<h2><b>How to check if your SoCs supports fast charging </b></h2>
+<p>
+Doing that is very simple, head on over to the <a href="https://www.qualcomm.co.in"> Qualcome’s website</a> and enter your processor’s name and in the description, you will see the if it supports or not.(zoom in to see the hilighted text in the picture)  </p>
+
+<img src="static/fast_charging/snapdragon625.PNG"  style="width:800px; height:600px; padding-top:40px; padding-bottom:40px ">
+
+
+
+
+<p><i>Lets us meet in the comments below and discuss if this guide helped you enable fast charging in your phones. 
+<br><br><br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i></p>
+
+
+</div>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10&appId=1955838181346479';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+{% endblock %}

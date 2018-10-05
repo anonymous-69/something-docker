@@ -1,0 +1,91 @@
+
+		{% extends "register.html" %}
+			{% block body %}
+			<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1><b>Beginners to advance guide for ICMP -Part 4     ( Traceroute ) </b></h1>
+
+<p>Welcome back fellow geeks! This is the last part of this small series. Glad to see that you guys made it so far. In this previous article, we discussed about how ping command make use of ICMP. This article is about the working of traceroute command. When I learnt about it, I was blown away. That’s one of the reason, why I am so excited to write this article. Hope you guys like it! </p>
+
+<h2><b>Overview </b></h2>
+
+<p>Traceroute is the network diagnostic tool which shows us the route taken by packets to reach their destination. Other than the route, it also records the round trip time for each packet and shows how many hops did it take to reach the destination. It does it with the use of ICMP echo packages and UDP. 
+</p>
+<h2><b>Interpreting the traceroute results </b></h2>
+
+<img src="static/ICMP_Part/Traceroute.png" class="img-fluid" style="width:800px;height:500px; padding-top:40px; padding-bottom:40px ">
+
+The first IP address of the router that you see is my internal IP. 
+Lets start from the top, we have the maximum number of hops i.e 30.<b> Don’t mistake that number to  be dependent from server to server. These are the number of hops that we have allowed to the program. 30 being the default value, but we can change it. </b>Every server has its own number of hops. In case of google.com, it is 14 (See the number where the traceroute ends). 
+<br><br>
+Then we have the 1st IP, which is internal IP of my router.<b> The 3 numbers that you see is the round trip time( RTT) and you see the 3 different numbers, as it sends the message 3 times, to verified result. </b>3 is a default value, but we can of course change it.  
+
+<h2><b>How Traceroute uses ICMP ?</b></h2>
+
+Here comes the most exciting part, the working of the traceroute using IMCP and UDP.
+What it does is, it sends a UDP message with a TLL = 1 . And just after 1st hop, the TTL=0 and the packet gets discarded. Which leads to the first router sending an ICMP error message that states that the TTL expired. 
+The IP of that router  will be present in the ICMP error message and it can also calculate the round trip time, by calculating the difference between the time at which it send the message and the time at wich it got the ICMP message . 
+Then it sends another UDP message with TTL = 2, the packet reaches the 2nd  router and its TTL becomes 0 and the package is discarded. It then calculates the round trip time, and displays the IP address of the router. 
+And it keeps doing that until it finds the serer. 
+
+
+
+<h3><b>How does it knows, if  it has reached the server and it is not just another router ? </b></h3>
+
+The thing is, that when it sends the UDP message, it contains the port number, which is known to be closed. And when the message hits the server, it sends an ICMP that the port is closed. This way the program comes to know that packet has reached the server. Hence the traceroute is complete and it stops sending more UDP request. 
+
+
+<h2><b>An example to clarify better …. </b></h2>
+
+For better understanding of the topic, I will be explaining it with an example. 
+
+As shown in the picture, there are 3 routers, R1, R2, and R3. Sitting on one end, a client is sending request to the server, and his request is going through 3 different routers. 
+<b>Client  :</b>  ** Sends a one UDP packet  to the server, but the TTL = 1 **<br><br>
+
+<b>Router 1 :</b> ** packet makes one hop and reaches the router 1. Now as TTL= 0, sothe router discards the package and sends a ICMP error message to the client. In the message, the router puts its IP address and the ping command calculates the round the trip.  **<br><br>
+
+
+
+<b>Client  :</b>  ** Again sends a UDP packet, but this time with a TTL = 2.   **
+<br><br>
+<b>Router R1 :</b> ** Receives the package and then TTL = 1. The packet is sent to the router R2 **
+<br><br>
+<b>RouterR 2 :</b> ** The packet now reaches router R2, but its TTL = 0. Router R2 discards the packets and send the ICMP  message to the client. Again the IMCP error message has router’s IP **
+<br><br>
+
+
+<b>Client :</b> ** The client then sends the message again, but this time, TTL = 3  **
+<br><br>
+<b>Router R1 :</b> ** Receives the package and then TTL = 2. The packet is sent to the router R2 **
+<br><br>
+<b>Router R2 :</b> ** Receives the package and then TTL = 1. The packet is sent to the server **
+<br><br>
+<b>Server :</b> ** The request goes to the server. The UDP message has the port number, which is known to be closed. So the server on receiving the packet sends an ICMP message of port closed.  **
+<br><br>
+<b>Client :</b> ** When this IMCP error message goes to the client, the program understands that ithas reached the server.    **
+<br><br>
+
+Depending where the server is present, the number of routers can vary. 
+
+<br><br>
+<p><i>An that ends the beginners to advance – ICMP series. Thanks you guys for sticking along with me in this series. Hope you like it and gained some information. As always if you have some doubts, fire them  in the comment section below. I will be more that happy to answer them .
+</i></p>
+
+<h3><a href= "{{ url_for('ICMP_Part_1') }}">  Beginners to advance guide for ICMP -Part 1 (Introduction to ICMP )</a></h3>
+
+
+
+<h3><a href= "{{ url_for('ICMP_Part_2') }}">   Beginners to advance guide for ICMP -Part 2 (ICMP message types)
+</a></h3>
+
+<h3><a href= "{{ url_for('ICMP_Part_4') }}">   Beginners to advance guide for ICMP -Part 4 ( Traceroute )</a></h3>
+<br><br>
+<p><i>If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i></p>
+
+
+
+
+</div>
+			{% endblock %}
+			

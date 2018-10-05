@@ -1,0 +1,116 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1> Cookies -Part 1 (Introduction to Cookies )</h1>
+
+<img src="static/cookies_part1/final.jpg" class="img-fluid" alt = “Cookies” style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p>Chances are you have read this word “cookies” before, perhaps  when you were browsing some shopping site or a  banking site or even some site, in general, asking you to accept that “you are okay this site using cookie. “ Which is layman’s language it is asking, are you okay with site tracking your steps on the internet? That makes it sound more scary and creepy. </p> 
+<img src="static/cookies_part1/cookies.png" class="img-fluid" alt = “Cookies” style="width:800px; height:600px; padding-top:40px; padding-bottom:40px ">
+<br>
+So what are Cookies? And do there really optimize your browsing experience? Lets find out!
+<hr size="40" color="#0000FF">
+<hr>
+Suppose you visit amazon.com, the conversation between your browser and the Amazon server would so somewhat like this-   
+<br>
+<b>Browser:</b> Hey can you show me some books regarding hacking? <br> 
+<b>Amazon server: </b> Yah sure, there you go <br>
+<br>
+<b>**After browsing the books for like 10 minutes **</b> <br><br>
+
+<b>Browser: </b>Hey, I like these 2 books, put them in my cart, so that I can buy them later <br>
+<b>Amazon Server: </b> Yah sure, but wait, take this file with you, and the next time you come around, give me that file. <br> 
+<b>Browser: </b>Yah sure, Bye! <br> 
+<br>
+<b>**Visting the site again after couple of days**</b> <br><br>
+
+<b>Browser: </b>Hi, can you show me some books on python? And here is the file, you told me to give it you when I came here the before.<br>
+<b>Amazon server: </b>Oh so you have visited this site earlier. According to this file, you looked for some hacking books, and I have kept the 2 books that you selected for hacking in the cart. Here are python books you asked. <br> 
+<b>Browser: </b> Oh thanks for reminding me about the books. <br>  
+
+
+<hr size="40" width="100%" color="#000000">
+<hr>
+<p>I guess by now you might have guessed it, that the file is a cookie. Cookies are small files saved in your browser’s cache.<br>
+When you visit a cookie enabled site, it gives you a cookie, and when you visit that site later, it comes to know that you had visited it earlier.<br>
+<b>Cookies keep the record of your session, which includes all the links you clicked and how much time spent on that website. Every cookie has a unique ID number, so that the server knows it’s you. It helps the developer know how many new users are coming to his site. </b>
+</p>
+<br>
+<h2>How do cookies provide an optimized user experience? </h2>
+<ul>
+<li>If you look for graphic cards on a shopping website, next time you visit that shopping website, it will be displaying you the all kind of graphics cards under the heading <b>“recommendations” or “ Inspired by your shopping trends ”</b>.</li>
+
+<li> <b>when you enter your credentials on social networking sites and then restart your browser, you don’t have have to log in again. It will directly take you to your news feed.</b> </li> 
+
+<li> <b>You might have noticed when you are on Facebook, sometimes you see the ads of most recent items you have looked on Amazon. When it first happened to me, it really surprised me, how advance tracking has become. </b></li>
+<p>
+In this case, Amazon cookies are acting as third party cookies (explained below) and is sharing it with Facebook . It doesn’t know if it enhances user’s experience or not, as it feels really creepy, but in my opinion, it is better to see the advert of those products that you like rather like than something you don’t. </p>  <br>
+
+<h2><b>If there are so better in at enhancing user experience, why are cookies considered nefarious? </h2> 
+<br><br>
+<ul>
+There  are primarily two types of cookies-
+<li>First party cookies </li>
+<li>Third party cookies </li>
+</ul>
+<br><br>
+First party cookies </b>help in optimizing the user experience as discussed above. They are the <b>“ good guys ”</b> here. <b>They will be tracking you only on their site. If you visit cake.com, they will be tracking you on cake.com only. </b>
+
+And now enter the <b>“ bad guys”,</b> the third party cookies.<b> They track your actions everywhere on the web, irrespective of the website you are on.</b> The adverts that you see on the torrent and the porn websites give your browser third party cookies for tracking. 
+
+<p>Some of you right now might be <b>“ I don’t visit these nasty websites. should I worry about it ?”</b> Unfortunately, the answer is yes. On websites, the admin has complete authority to decide, if he want ads through Google adsense or from some independent company. And it is profitable having ads from some company, as in adsense, Google acts as a middleman. So even a nice legit website can have a sensible ad form a company, which might or might not be having third party cookies. </p>
+ <p><br>
+<b>Cookies stealing– </b> This is a vast topic itself, what I will  be covering here is just a tip of an iceberg. Cookies don’t store your username and password, but if in case of cookie theft, that person can use your cookies to login your Facebook account. Of course, he won’t be having your username and password but he will pretend to be you using your cookies and can see your news feed and even your messages. <br>
+Cookies stealing can be done using Cross Site Request Forgery. I will soon be posting an article about it, so stay tuned for it!  </p>
+<br>
+<h2><b>How to prevent third party cookies from tracking you? </b></h2> 
+<ul>
+<li>Most of the browsers these days come with the option of blocking third party cookies.</li>
+
+<li> If you visit some torrent/porn website, you can manually delete the cookies.</li>
+</ul>
+<h2><b>Clearing some common misconceptions about cookies</b> </h2>
+<ul>
+<li>Cookies don’t store any passwords. They hold the session.</li>
+
+<li> Cookies are not some script. You can’t run them. Even some site have stated them as script, which is entirely wrong. They just store information.
+</li>
+
+<li>Cookies are not encryped . The text is in human readable form.</li>
+</ul>
+<br><br>
+
+<p><i>If you have some trouble understanding some topic, leave a comment below. I would happy to hear from all you guys. <br>
+I have discussed in depth about tracking cookies and Third party cookies vs First party cookies
+  Hope you guys read them too.<br> 
+Have a nice day. Cheers !   </p>
+
+
+<h2><b>
+<a href= "{{ url_for('cookies_part2') }}"> Cookies -Part 2  (cookies tracking )  </a>
+<br><br>
+
+<a href= "{{ url_for('cookies_part3') }}"> Cookies -Part 3 (Third party cookies vs First party cookies and Identifying cookies on a site ) </a>
+</h2>
+
+</b></h3>
+<br>
+<br>
+<p><i>If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.</i></p>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

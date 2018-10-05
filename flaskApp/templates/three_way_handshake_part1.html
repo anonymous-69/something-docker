@@ -1,0 +1,78 @@
+         {% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1><b>  Three way handshake -Part 1 </b></h1>
+
+
+<img src="static/three_way_handshake_part1/final.jpg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+Welcome back, fellow geeks! Today we are going to to get our hands dirty with Three Way Handshake. I will be dividing it into 2 parts, this one will give an in depth overview about the topic and the 2nd article, I will be showing the real example of capturing the three way handshake.
+                                                                                                                                                                                                                                                                                                                    
+
+<h2><b>Getting acquainted with some words </b></h2>
+
+These are not exactly new terms in the networking. These are basically some full forms. 
+<br>
+<b>ACK –</b> Acknowledge<br>
+<b>SYN –</b> Synchronize<br>
+<b>SEQ –</b> Sequence <br>
+  
+
+<h2><b>Getting a basic idea about three way handshake </b></h2>
+
+Three way handshake is the first step taken by the client to connect to the server. In other words, this the first thing that happens, before the client  sending and receiving to the server. 
+
+
+
+<b>Client: </b> The client performs the active open and sends a SYN request to the server. Which basically means, hey server do you wanna talk? <br><br>
+
+<b>Server: </b>  The server is like yes, I am okay with you talking, but do you want to talk to me?<br>
+Hence it then sends an SYN and ACK as a gesture that it has received client’s SYN request. <br><br>
+
+<b>Client: </b> It then says, Yes I want to talk to you. Lets talk!  <br>
+ It then again sends an ACK to the server. <br>
+
+<i>And now the connection is established and they can send data through TCP.</i>
+
+<h2><b>Digging deep into three way handshake </b></h2>
+
+
+Now that we are clear with the basic concept of three way handshake, let us dig deep into it and talk numbers here. 
+
+This is the same image that I have posted above, but it is a bit more detailed. Even though the image is the best representation of the three way handshake, but if you didn’t understand from the image, I have explained it below.
+
+So here the client sends the SYN request to the server which has the SEQ = 200 . The server acknowledges it by sending ACK which is +1 of the SEQ sent by the client <b>(ACK = SEQ+1, henceforth ACK = 200+1)</b>and <b>its own SEQ number</b>, which in this case is 100. 
+<br>
+Then the client acknowledges it by sending ACK which is +1 of SEQ number, that was sent by the server<b>(ACK = SEQ + 1, henceforth ACK= 300+1). </b> 
+
+<h2><b>Answering common question....</b></h2>
+
+
+<b>Question –</b>How are the numbers, 200 and 300 chosen? <br> 
+
+<b>Answer -</b>The first SEQ number sent by the client (in this case it was 200) or the SE sent by the server to the client (in the above case, 100 )in the second stage are randomly chosen numbers. There are no specific numbers.  <br>
+<br>
+<b>Question –</b>Will the ACK always be increased by 1? <br>
+<b>Answer –</b>yes  <br><br>
+
+<i>And with this, we end the 1st part of the article. I hope you like this article. If you  have some doubts or something to share, lets meet in the comment section below. 
+If you want to recommend a particular article or solve some query, let me know in the section below the comment section.  
+<br><br>
+In the next part, we will be discussing brain bashing questions like -
+ </i>
+ <br>
+<b>1) A live example of three way handshake using wireshark </b><br>
+<b>2) Does three way handshake happen in UDP connection? </b>
+
+<br>
+<h2><a href= "{{ url_for('three_way_handshake_part2') }}"> Three way handshake -Part 2  </a></h2>
+<br>
+<br>
+<br>
+
+
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+	
+			</div>
+			{% endblock %}

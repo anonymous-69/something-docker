@@ -1,0 +1,52 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+
+        <H1> <b>Three way handshake -Part 2 (Capturing three way handshake using Wireshark) </b></h1>
+<img src="static/three_way_handshake_part2/final.jpg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+Welcome back guys! <br>
+
+In the previous part, I discussed about the functioning of three way handshake. If you have stumbled upon this article, I would recommend you to go about reading the first part, as it covers the main concept. 
+
+	<H2> <B>A real world example using Wireshark </B></H2>
+
+<p>
+We will be using wireshark to see how the TCP three way handshake happens in the real world. So I have recorded a session of a website. For the legal purposes, I have removed the IP address of the website. And I have  captured the data of my own browsing. </p>
+
+<h2><b>What is wireshark ?</b><h3>
+
+If you know about it, you can skip this section. Wireshark is the tool to capture the HTTP data. You can record the usernames and passwords using the wireshark. 
+
+ <h3><b>Let us begin! </b></h3>
+
+I am running wireshark on the kali Linux running on the virtual box, and that's the reason, why you are viewing square screenshots. <br>
+When you click on a link, you are not just connecting to one server, you are connecting to many other servers. These servers are of adverts. So for the sake of simplicity, I went to the 192.168.0.1, which opens my router settings page.<br> 
+
+<img src="static/three_way_handshake_part2/wireshark1-EDITED.png" class="img-fluid"  style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+
+Here you can see the SYN is set, but it has not sent the ACK. 
+
+<img src="static/three_way_handshake_part2/wireshark2-EDITED.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+
+The server has sent the SYN and ACK 
+<img src="static/three_way_handshake_part2/wireshark3-EDITED.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+The client sent an ACK, and the connection is established.  
+
+
+
+ <h2><b> Does three way handshake happen in UDP connection? </b></h2>
+
+
+TCP establishes a connection in order to provide reliability and flow control, which UDP doesn't. UDP is connectionless, which means that UDP doesn't perform three way handshake. In other words, it doesn’t negotiate how the connection will work, UDP just transmits the stream of data and hopes for the best. 
+<br>
+<br>
+<p><i>Thanks for holding up for this small series of two posts on three way handshake. I hope you enjoyed it and enhanced your knowledge, If you have some query, post is down in the comment section below. I will be happy to help you out there. 
+<br><br><br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i></p>
+</div>
+			{% endblock %}

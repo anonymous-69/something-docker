@@ -1,0 +1,68 @@
+ 	{% extends "register.html" %}
+   {% block body %}
+    
+<div style = " font-style:inherit; font-size : 22px " >
+  <h1><b> Public Key Cryptography </b></h1>
+
+  <img src="static/public_key_encryption/final.jpg"  class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+  <br>
+In the recent years, we have paved our way from MD 2 (128 bits) to SHA512 (512 bits ). As of now SHA 256 (##512 bits )is the one who has conquered the place for one of the best of the <b>cryptographic hash algorithm.</b> In future, when we have the better processing power, some other hash algorithm would take its place.<br><br>
+
+In a nutshell, there are two types of cryptography -<br>
+<ul> 
+<li><b> Symmetric cryptography</b></li>
+<li><b> Asymmetric cryptography</b></li>
+</ul>
+Let us try to understand them, one by one 
+
+<p>
+<b>Note: </b><i> This might feel overwhelming at first. Don’t worry, read it a couple of times and you will understand. Don’t just give up and quit reading this topic.  In my case, it took a while before I was able to wrap my head around it, hence I have tried simplifying it as much as I can. But you guys are way smarter than I was! </i>
+</p>
+<h2><b>Symmetric Cryptography </b></h2>
+<p>
+In symmetric cryptography, there is one key and you encrypt the message and then you use the same key to decrypt the message. Hence if you want to send someone encrypted text, then you have to send him the key along with it. 
+<br>
+<img src="static/public_key_encryption/page102.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+<br>
+The problem is how much stronger your hashing algorithm is, <b>if a hacker gets hold of the  key, then encrypting doesn’t make much sense.</b> One thing you can do is, meet the person in private in a park or something and hand him over the key. 
+But in today’s time, this is not possible, as the businesses are expanding worldwide and if I want to talk securely to a person living in another corner of the world, I wouldn’t be flying there to give him the key. 
+That’s where<b> asymmetric cryptography</b> comes into play.  
+</p>
+<h2><b>What is Public Key Cryptography? </b></h2>
+
+<p>
+Public key cryptography is the example of Asymmetric cryptography. In public key cryptography, there are <b>two keys, A and B</b> .  These keys are linked in such a way that the message encrypted with Key A, can only be decrypted with Key B and anything you encrypt  with Key B can only be decrypted with Key A. Plus you can’t guess one key from  the another. </p>
+ 
+<img src="static/public_key_encryption/page103.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+ <p>
+You generate a <b>pair of these keys,</b> and these are called <b>public key</b> and <b>private key</b>. You can share your public key with anyone. And keep the private key with yourself. The person can encrypt the message with your public key and then send it you and you can decrypt it with your own private key and read the message. 
+</p>
+<p>Let us take an example of Alice and Bob, they both generate a pair of these keys. And share their public key with one another. Alice encrypts the message with <b>Bob’s public key</b> and sends him. And the Bob uses his <b>private key</b> to decrypt it and read the message. In this case, even if the attacks get hold of Alice public key, he won’t be able to decrypt the message as it would require Bob’s private key. Hence they both can talk securely. </p>
+<p>
+Another thing Alice can do to enhance security is, she can encrypt the message with Bob’s  public key and then with her private key. Now if Bob wants to read the message, he will first decrypt it with her public key and then with his private key. 
+I find it  exceptionally clever and impressive. </p>
+
+
+
+<h2><b>Applications of Public key cryptography </b></h2>
+
+<ul>
+<li>SSH (secure remote login, tunneling, etc) (public/private authn/authz is optional. </li>
+<li>Digitally signed PDF files. (including attachments within the PDF)</li>
+<li>Signed Applets and jar archive files for Java.</li>
+<li>Digital signatures in the packaging infrastructure for Debian, Ubuntu and Red Hat Linux distributions, etc.</li>
+<li> S/MIME for signed and/or encrypted email.</li>
+<li> DNSSEC for securing the DNS.</li>
+</ul>
+<br><br>
+<p><i>I hope you guys liked this and are able to wrap your head around it. I have written an article about SSL, man in the middle attack in which Public key cryptography is the core. Do have a look at that. <br>
+Peace !
+<br>
+<br>
+<br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i></p>
+ 
+
+</div>
+{% endblock %}

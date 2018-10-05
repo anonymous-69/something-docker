@@ -1,0 +1,100 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+	
+<h1><b> Hack WiFi password using Aircrack-ng </b></h1><br>
+
+<img src="static/wifi_hacking/final.png" class="img-fluid"  style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p><em><strong>Disclaimer:</strong></em> I am using my own wifi and devices for this article. <em>I am not stealing/damaging anyone&#8217;s property in this article. This article is strictly for educational purpose. Hacking someone&#8217;s wifi&#8217;s password without taking legal permission is a crime and I do not support such activities.</em></p><br><br>
+<p>Welcome back fellow geeks, hope you are doing fine!</p>
+<p>In this tutorial, I will be discussing, how to crack wifi passwords using aircrack-ng. It is an extremely useful tool to crack WiFi passwords. Let&#8217;s rush right into it!</p>
+<h2><b>Installing aircrack-ng</b></h2>
+<p>Personally, I would recommend using it on a <strong>Linux distribution</strong> or <strong>Mac.</strong> Don&#8217;t even try using it on a VM,<strong> as aircrack-ng has to directly interact with the hardware</strong> and you can&#8217;t do that on a VM.</p>
+<p>All the links are from the official aircrack-ng website</p>
+<p><strong>Aircrack-ng for Windows-</strong> <a href="https://www.aircrack-ng.org/" rel="noopener">click here</a></p>
+<p><strong>Aircrack-ng for Mac</strong>&#8211; <a href="https://www.aircrack-ng.org/install.html" rel="noopener">Click here </a></p>
+<p><strong>For Linux, it is really simple-</strong>  open the terminal and give the command- <code>sudo apt-get install aircrack-ng </code></p>
+<h2><b>Going in depth with aircrack-ng</b></h2>
+<p>Before we start using it, we have to learn how it actually works. So what aircrack-ng does is that it will send <strong>deauth (deauthorize) request</strong> to the devices connected to wifi, and within a minute or so,<strong>  it will disconnect all the devices from that wireless router</strong>. And then we will stop the deauth request and then the devices will reconnect. And when this happens, we will be able to capture the <strong>4-way handshake</strong>. Then we can perform <strong>bruteforce or dictionary attack</strong>, to crack the password.</p>
+<h2><b>Let&#8217;s begin</b></h2>
+<p><strong>Step 1-</strong> To begin with, we first need to turn on the monitor mode of the wireless card.  There are 4 &#8211; 5 commands that you will need to enter to achieve that. I have already covered it, you can check it out.</p>
+
+ 
+<b><a href= "{{ url_for('check_the_support_for_monitor_mode') }}"> Check if your wireless card supports monitor mode for Aircrack-ng and Wireshark  </a> <br>
+<a href= "{{ url_for('enable_monitor_mode') }}"> How to turn on the monitor mode for capturing packets on Linux  </a>
+</b>
+<p><strong>Step 2-</strong> I hope you have gone through the posts and enabled the monitor mode on your wireless card.  Now give the command- <code>airodump-ng </code></p>
+<p>I think every distribution has a different interface name, you can check yours. Mine is<strong> &#8216;wlp3s0&#8217;.</strong></p>
+
+
+
+<img src="static/wifi_hacking/1.png" class="img-fluid" style="width:800px;height:470px; padding-top:40px; padding-bottom:40px ">
+
+<p>Now it has started showing all the wireless routes around you. I will be explaining all the terms here now-</p>
+<ul>
+<li><strong>BSSID</strong> is the mac address of the wireless router</li>
+<li><strong>PWR</strong> is the strength of the signal.</li>
+<li><strong>CH</strong> is the channel number</li>
+<li><strong>ENC</strong> is the encryption, the wireless router is using. It is can be wpa2 or wpa1</li>
+<li><strong>ESSID</strong> is the name of the wireless router</li>
+</ul>
+<p>We will be targeting a particular wireless router and mine is &#8216;<strong>Slow Net</strong>&#8216;. Rest are of my neighbors.</p>
+<p><em>Just to be clear, I am NOT doing anything illegal here. All the information you are seeing in the above photo is what a wireless router publicly displays. It displays its name, its mac address and the encryption it is using. </em></p>
+<p><strong>Step 3-</strong></p>
+<p><code>airodump-ng -c  -w  --bssid  </code></p>
+<p>In the image below, I have used this &#8211; <code>airodump-ng -c 1 -w text.txt --bssid A0:AB:1B:C1:E4:68 wlp3s0</code></p>
+
+
+<img src="static/wifi_hacking/2_without handshake.png" class="img-fluid" style="width:800px;height:460px; padding-top:40px; padding-bottom:40px ">
+
+
+
+<p><strong>Station</strong> is the device that is connected to the wireless router like mobile phones, laptops and tablets.</p>
+<p><strong>Step 4 &#8211; </strong>Open a new terminal<strong>(Don&#8217;t close the previous terminal, let it run, 4-way handshake will be recorded there.) </strong> and give the command- <code>aireplay-ng -0 0 -a </code></p>
+<p>Using this command we are sending the deauth request to all the devices connected to the router.  And in a minute or two, internet on your devices connected to your router will be painfully slow and then it would finally disconnect.</p>
+
+
+<img src="static/wifi_hacking/3.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+
+
+<p>After a like a minute, stop it and then the devices will try to reconnect.(For this to happen, make sure atleast one device is connected to the router :) ) And when these devices try to reconnect, the 4-way handshake will be captured and it will be shown in the top right corner of the screen of your terminal.</p>
+
+
+<img src="static/wifi_hacking/2_with handshake.png" class="img-fluid" style="width:800px;height:400px; padding-top:40px; padding-bottom:40px ">
+
+
+
+
+<p><strong>Step 5-</strong> Now that 4-way handshake is captured, we now have to decrypt it using crunch. I have already covered crunch in one of my posts. Just go through the post quickly!</p>
+
+<b><a href= "{{ url_for('crunch_wordlist_generator') }}"> Generate wordlist using Crunch for password cracking. </a></b>
+
+<p>Now we will be using this command to crack the pasword &#8211; <strong><code>crunch 7 7 abcdefghijklmnopqrstuvwzyz0123456789 -t ,@@@%%% |aircrack-ng -w - text.txt-01.cap -b A0:AB:1B:C1:E4:68 </code></strong></p>
+
+
+<img src="static/wifi_hacking/4.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+
+
+
+<p>Make sure that you use the above command in the same folder where have generated the files of the 4-way handshake.</p>
+<p> Now it will be calculation all the permutation and combinations of passwords and when it will find one, it will stop. This might take time. It all depends upon how much information you have entered into crunch pattern. If you are just cluelessly aiming to find a password, then it might take you million years.<b> You need to have some idea of what password could be.</b>
+ </p>
+
+<h2><b>Got stuck somewhere?</b></h2>
+<p>I know it was kinda a long tutorial and chances are you might have messed up one little thing during this whole process. So I will be laying some pointer that I think will be super useful.</p>
+<ul>
+<li> You have to write sudo before every aircrack-ng command. Or you can simply use <code> su </code> at the start. Otherwise it will be giving an error - <blockquote>bash: airodump-ng: command not found</blockquote> </li>
+<li>On step 4, you have to open a new terminal, and let the previous one running as <strong>the 4-way handshake will appear in the top right corner of that terminal.</strong></li>
+<li>The file name you have used in step 5, it&#8217;s extension is not same as that of what you have given on step 3, &#8220;.cap&#8221; will be added.<strong> If you are still not able to make it work because of the wrong name, you can go to the folder where the 4-way handshake is been captured and there will be 3 new files. Use the one with &#8216;.cap&#8217; extension.</strong></li>
+<li>I am using my own channel number, mac address and interface name, so you can&#8217;t just simply copy it and get away with it.</li>
+<li>Posts like enabling monitor mode and crunch are very closely linked to this. So do check them out.</li>
+</ul>
+<p>If you still have any doubts or you didn&#8217;t understand a particular command,  then comment down below. I will explain you in detail. Thank you guys for sticking around.</p>
+<p><b>peace!</b></p>
+
+
+</div>
+			{% endblock %}

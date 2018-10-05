@@ -1,0 +1,200 @@
+
+{% extends "homepage99.html" %}
+{% block body %}
+
+
+<p><h1> <center> <font face=" Times"> Networking</font></center></h1></p>
+<br>
+<br>
+<br>
+<div class="row">
+		<div class="col-md-9" >		
+	<div  style="padding-right:100px">
+		<a href= "{{ url_for('cookies_part1') }}"> 
+		<img src="static/cookies_part1/final.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('cookies_part1') }}"> Cookies -Part 1 (Introduction to Cookies ) </a></h3>
+			<div style="padding-right:100px "> 
+			Cookies keep the record of your session, which includes all the links you clicked and how much time spent on that website.
+	</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+
+<div  style="padding-right:100px">
+		<a href= "{{ url_for('cookies_part2') }}"> 
+		<img src="static/cookies_part2/final.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('cookies_part2') }}"> Cookies -Part 2  (cookies tracking ) </a></h3>
+			<div style="padding-right:100px "> 
+			In this post, I have discussed about how third party cookies follow you across the web. Trust me, it is creepier than it sounds! 
+			</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+
+<div  style="padding-right:100px">
+		<a href= "{{ url_for('cookies_part3') }}"> 
+		<img src="static/cookies_part3/final.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('cookies_part3') }}"> Cookies -Part 3 (Third party cookies vs First party cookies and Identifying cookies on a site)  </a></h3>
+			<div style="padding-right:100px "> 
+			In the past part of the series, be go indepth about the difference between third party cookies and the first party cookies. 
+		
+			</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+
+		<div  style="padding-right:100px">
+		<a href= "{{ url_for('end_to_end_encryption') }}"> 
+		<img src="static/end_to_end_encryption/final.png" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('end_to_end_encryption') }}"> End-to-End Encryption  </a></h3>
+			<div style="padding-right:100px "> 
+			Keeping you text messages protected from the eves droppers and government had been a  major issue for the companies like WhatsApp, Facebook Messenger and Apple on iMessages.Check out, how end to end encryption solves it.  
+			</div>
+			</div>
+			
+			<hr style="border:1px solid #9D54F5;">
+<div  style="padding-right:100px">
+		<a href= "{{ url_for('Introduction_to_HTTP_and_HTTPS') }}"> 
+		<img src="static/https_and_ssl/http.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('Introduction_to_HTTP_and_HTTPS') }}"> Secure Web Browsing -Part 1 ( Introduction to HTTP and HTTPS) </a></h3>
+			<div style="padding-right:100px "> 
+			While browsing the internet, you guys might have noticed that some sites using HTTP, while the others, using HTTPS. Which one of them is secure?
+			 Lets find out!
+			</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+			
+			<div  style="padding-right:100px">
+		<a href= "{{ url_for('How_HTTPS_work') }}"> 
+		<img src="static/https_and_ssl/http.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('How_HTTPS_work') }}"> Secure Web Browsing -Part 2 ( How does HTTPS actually work?) </a></h3>
+			<div style="padding-right:100px "> 
+			In this post, I will be talking about how HTTPS actually work, encrypting the data sent and recieved from the server. 
+			</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+			
+			<div  style="padding-right:100px">
+		<a href= "{{ url_for('three_way_handshake_part1') }}"> 
+		<img src="static/three_way_handshake_part1/final.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('three_way_handshake_part1') }}"> Three way handshake -Part 1 </a></h3>
+			<div style="padding-right:100px "> 
+			In this post, we wil be getting our hands dirty with Three Way Handshake
+
+			</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+	
+	<div  style="padding-right:100px">
+		<a href= "{{ url_for('three_way_handshake_part2') }}"> 
+		<img src="static/three_way_handshake_part2/final.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('three_way_handshake_part2') }}"> Three way handshake -Part 2 </a></h3>
+			<div style="padding-right:100px "> 
+			I will be using wireshark to see how the TCP three way handshake happens in the read world.
+
+			</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+
+			<div style="padding-right:100px">
+		<a href= "{{ url_for('public_key_encryption') }}"> 
+		<img src="static/public_key_encryption/final.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('public_key_encryption') }}"> Public Key Cryptography </a></h3>
+			<div style="padding-right:100px "> 
+			The problem is how much stronger your hashing algorithm is, if a hacker gets hold of the  key, then encrypting doesn’t make much sense. This is where Public Key Cryptograph.
+
+			</div>
+			</div>
+		<hr style="border:1px solid #9D54F5;">	 
+	<div  style="padding-right:100px">
+		<a href= "{{ url_for('ICMP_Part_1') }}"> 
+		<img src="static\ICMP_Part\icmp.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('ICMP_Part_1') }}"> Beginners to advance guide for ICMP -Part 1(Introductoin)</a></h3>
+			<div style="padding-right:100px "> 
+			In this tutorial, I will introducing you to the basics of ICMP and then gradually we will dig deep into this topic and learn about the ICMP service Model
+			</div>
+			</div>
+			<hr style="border:1px solid #9D54F5;">
+	<div  style="padding-right:100px">
+		<a href= "{{ url_for('ICMP_Part_2') }}"> 
+		<img src="static\ICMP_Part\icmp.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('ICMP_Part_2') }}"> Beginners to advance guide for ICMP -Part 2 (ICMP message types)(Introductoin)</a></h3>
+			<div style="padding-right:100px "> 
+			In this tutorial,I will be discussing about the the different ICMP message type.
+
+			</div>
+			</div>
+<hr style="border:1px solid #9D54F5;">	 
+	<div  style="padding-right:100px">
+		<a href= "{{ url_for('ICMP_Part_3') }}"> 
+		<img src="static\ICMP_Part\icmp.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('ICMP_Part_3') }}"> Beginners to advance guide for ICMP -Part 3 ( Ping command)(Introductoin)</a></h3>
+			<div style="padding-right:100px "> 
+			In this part and the next part will be completely practical and more attention seeking, Today we will be discussing about <b>how ping command use ICMP.</b> 
+	</div>
+			</div>			
+<hr style="border:1px solid #9D54F5;">
+	<div  style="padding-right:100px">
+		<a href= "{{ url_for('ICMP_Part_4') }}"> 
+		<img src="static\ICMP_Part\icmp.jpg" style="width:600px;height:340px; padding-right:10px "> </a>
+			<h3><a href= "{{ url_for('ICMP_Part_4') }}"> Beginners to advance guide for ICMP -Part 4 ( Traceroute )</a></h3>
+			<div style="padding-right:100px "> 
+			 This article is about the working of traceroute command. When I learnt about it, I blew away my mind. Hope it happens with you too.
+			</div>
+			</div>
+			</div>
+		 <div class="col-md-3" style = " font-style: Courier New ; font-size : 15px "> 
+		 <div  style="padding-bottom: 200px">
+			 <hr style =  "border: none; height: 4px;color: #333; background-color: #333; " > <!-- for borders -->
+		<h3>Latest Tech News </h3>			
+		
+		<ul>This is a text widget. The Text Widget allows you to add text or HTML to your sidebar. You can use a text widget to display text, links, images, HTML</ul>
+		<ul>or a combination of these. Edit them in the Widget section of thekjrfk rdwnugrh </ul>
+		<hr style =  "border: none; height: 4px;color: #333; background-color: #333; " >
+			 </div>
+			 <!-- there will be add -->
+			<h3><b>Also from Boot Up the Geek </b></h3>
+			<b>
+			<br>
+			<br>
+			<a href= "{{ url_for('rooting_popularity_down') }}"> 
+			<ul>
+			<b><li>	Why has rooting become less popular over the years?</li>
+			</a>
+			<br>		
+			<a href= "{{ url_for('cookies_part1') }}"> 
+			<li>	Cookies -Part 1 (Introduction to Cookies )</li>
+			</a>
+			<br>		
+			<a href= "{{ url_for('end_to_end_encryption') }}"> 
+				<li>	End to End Encryption</li>
+			</a>
+			<br>
+			
+		<a href= "{{ url_for('different_de_experience') }}"> 
+			<li>	My Experience with different Desktop Environment</li>
+			</a>
+			<br>		
+			<a href= "{{ url_for('Should_You_Install_Kali_Linux_as_a_Beginner') }}"> 
+			<li>		Should You Install Kali Linux as a Beginner ?</li>
+			</a>
+			<br>		
+			<a href= "{{ url_for('VB_or_dualboot') }}"> 
+			<li>	Beginner’s guide to install Linux – VirtualBox vs DualBoot</li>
+			</a>
+			<br>
+			<a href= "{{ url_for('is_your_prone_to_hacking') }}"> 
+			<li>	Is your Phone Hacked?</li>
+			</a>
+			<br>	
+			<a href= "{{ url_for('public_key_encryption') }}"> 
+			<li>		Public Key Cryptography</li>
+			</a>
+			<br>	
+			<a href= "{{ url_for('check_the_support_for_monitor_mode') }}"> 
+			<li>	Check if your wireless card supports monitor mode for Aircrack-ng and Wireshark?  </li>
+			</a>
+			<br>	
+		</b>
+			 </div>
+		</div>
+</div>
+	
+{% endblock %}

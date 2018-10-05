@@ -1,0 +1,78 @@
+{% extends "register.html" %}
+			{% block body %}
+			<div style = " font-style: Courier New ; font-size : 22px " >
+
+  <h1><b> Beginners to advance guide for ICMP -Part 2   (ICMP message types)</b></h1>
+
+Welcome back, fellow geeks! In my 1st part, I discussed about the basics of ICMP and then understood the structure of an ICMP error message. In this part, I will be discussing about the the different ICMP message type.<br>
+<i>If you have stumbled across this article and have no clue what ICMP is, then go check out the 1st part. </i>
+
+ <h2><b>In case you have forgotten…..  </b></h2>
+
+The  error messages are divided into different sections called <b>types </b>and to give in depth information about the error, these<b> types</b> have their own section called <b>code.</b>
+
+
+<h2><b>Different types of  ICMP messages </b></h2>
+
+Now that we are clear with the basics of ICMP and the structure of the ICMP packages, lets talk about the different ICMP messages types. Remember, I mentioned about the so called “technical issues ”, this is the part I was talking about. 
+One thing to note is that, I am not writing all the <b>‘codes’</b> of every<b>'type’</b>. I will be just discussing the popular ones. 
+
+<h2><b>ICMP Destination Unreachable (Type 3 )</b></h2>
+
+The first three fields seen in the image are the same as previously described. The Destination Unreachable type has 6 basic codes that can be used, as seen below in the list.
+      <ul>
+      <li><b>Network unreachable (Code 0) -</b> Tells you if a specific network is currently unreachable.</li>
+      <li><b> Host unreachable (Code 1) -</b> Tells you if a specific host is currently unreachable.</li>
+      <li><b> Protocol unreachable (Code 2) - </b>This code tells you if a specific protocol (tcp, udp, etc) can not be reached at the moment.</li>
+      <li><b> Port unreachable (Code 3) - </b>If a port (ssh, http, ftp-data, etc) is not reachable, you will get this message.</li>
+      <li><b> Fragmentation needed and DF set (Code 4) -</b>If a packet needs to be fragmented to be delivered, but the Do not fragment bit is set in the packet, the gateway will return this message.</li>
+      <li><b> Source route failed(Code 5) -</b>If a source route failed for some reason, this message is returned.</li>
+      <li><b>Destination network unknown(Code 6 ) -</b>If there is no route to a specific network, this message is returned.</li>
+      <li><b>Destination host unknown (Code 7 ) -</b>If there is no route to a specific host, this message is returned.</li>
+      </ul>
+<h2><b>Source Quench (Type 4)</b></h2>
+
+If the receiver feels that there are a lot messages he is receiving, then he will send a ICMP error message to send the package slowly. It also informs that the datagram is discarded due to a lot of data. I source quench error message is sent with 1 datagram discarded. 
+All source quench packets have their ICMP types set to 4. They have no codes except 0.
+<h2><b>Time to live (TTL) equals 0 (Type 11 )</b></h2>
+
+As discussed earlier, TTL is used to prevent looping of a packet in network.  I has some set value which determines how many routers you can cross (hop). After every hop, its value is decremented by 1. If in case the package goes into a loop, its hop value will eventually decrease and would finally die.  
+
+
+ <b>(We are gonna be talking more about TTL in Traceroute command)</b>
+
+<h2><b>ICMP Echo Request (type 8)/Reply(type 0.)</b></h2>
+
+Echo request and reply are related to each other. The first difference is that the echo request is type 8, while echo reply is type 0. When a host receives a type 8, it replies with a type 0.
+When the reply is sent, the source and destination addresses switch places as well. After both of those changes has been done, the checksum is recomputed, and the reply is sent. There are only 1 code for both of these types, they are always set to 0.
+<b><i>(We are gonna be practically applying echo request/reply in ping command) </i></b>
+<h2><b>Redirect (type 5)
+</b></h2>
+The ICMP Redirect message is used to notify a remote host to send data packets on an alternative route. A host <b>should not</b> send an ICMP Redirect message. Redirects <b>should</b> only be sent by gateways.
+<ul>
+      <li><b>Redirect for network (Code 0) -</b> Only used for redirects for a whole network (e.g., the example above).</li>
+      <li><b>Redirect for host (Code 1) -</b> Only used for redirects of a specific host (e.g., a host route).</li>
+</ul>
+<p>I haven’t covered all the types and codes, just mentioned those which are important and popular. If you like to know every ICMP message, then there is a nice descriptive  table on wikipedia, check that out. </p>
+<p><i>In the next article, I am gonna be talking about Ping command. I can understand that both part 1 and part 2 were more of like theoretical ones, but ping command and the traceroute command(to be covered in part 4 ) are very much practical.<br>
+If you have any trouble understanding this topic, comment down below. I will be more than happy to help you out. </p> </i>
+
+
+<h3><a href= "{{ url_for('ICMP_Part_1') }}">  Beginners to advance guide for ICMP -Part 1 (Introduction to ICMP)</a></h3>
+
+<h3><a href= "{{ url_for('ICMP_Part_3') }}">     Beginners to advance guide for ICMP -Part 3( Ping command)   
+
+</a></h3>
+
+
+<h3><a href= "{{ url_for('ICMP_Part_4') }}">   Beginners to advance guide for ICMP -Part 4( Traceroute)</a></h3>
+
+ <br><br><br>
+
+<p><i>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+ </p> </i>
+
+
+</div>
+			{% endblock %}

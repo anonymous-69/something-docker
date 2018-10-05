@@ -1,0 +1,84 @@
+
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+
+<h1><b>Secure Web Browsing -Part 1 ( Introduction to HTTP and HTTPS) </b></h1>
+<br>
+<p>While browsing the internet, you guys might have noticed that some sites using HTTP, while the others, using HTTPS. Which one of them is secure? And does using any of them enhances the browsing experience? Lets find out! </p>
+
+<img src="static/https_and_ssl/https.jpg" class="img-fluid" style="width:600px;height:400px; padding-top:40px; padding-bottom:40px ">
+
+<p>By now you might have known that<b> HTTPS is secure probably because popular sites like Twitter and Facebook use it, and probably because it has that padlock symbol in  the address bar. </b> </p>
+
+<h2><b>What is HTTP? </b></h2>
+
+<p>HTTP stands for Hypertext Transfer Protocol.HTTP is an application protocol that runs on the top of the TCP/IP protocol. In simple words, this is what helps you browse the Internet. <b>When you search something on the web, you are basically sending a request to the server, that sends you the packets over TCP/IP. </b></p>
+
+<h2><b> Webpage formation </b></h2>
+
+<p>When you request a server for a website, it is not only that server which is sending information to the web-page. There are a couple of different servers apart from that, from the different parts of the world that are sending you some information. Generally, that information is in the form of the adverts. </p> 
+
+<img src="static/cookies_part2/self1.jpeg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+<p>As you can see in the above picture, these different bits and pieces of the information from different servers that create the web page. There are some banners at top and button and some adverts at the side and the main content which actually wanted to see. </p>
+<p>As the servers, from which the web page is grabbing data from, are located across the world, which makes the system more complex and there are potentially weak links, and if data from the server is redirected, it causes some serious damage. </p> 
+<p>
+If you have a slow internet connection, you might have noticed that as the page renders, the things tend to move a round a bit as the the site is getting data from the various servers across the planet.</p>
+
+<h2><b>Security flaws with HTTP  </b></h2>
+<ul>
+<li><p>In HTTP, you have no idea if the request that you are sending is being sent to the   right server or not. <b>Your request can be redirected  and sent to some other server. That server might send you a web page that contains millions of cookies that will track you on the internet for your rest of your life. </b> </p>
+
+
+
+<p>Your ISP can redirect all your request.<b> And it makes changes in the packet, as in this case, he removed one of an advert from the Google and replaced it with his ad.</b>I can’t comment about the legality of the situation, but this surely is unethical and the person who has paid Google to show his ads is suffering a loss. </p></li>
+
+<li>The packets that you receive from the server can be altered before it reaches you, hence you end up getting modified information. Sadly, there is no way the user can know if what he is looking at is authenticate.</li>
+
+<li> Anyone in your network can perform man in the middle attack and can see what you are browsing as all the text is unecrypted</li>
+
+<li> Making things worse, <b>if you enter your account details in the webpage which is on HTTP, your credentials can be seen by the attackers doing man in the middle attack, and even by your ISP as all the traffic fist pass through him.</b><br>
+Here is the screenshot below of some site which is still on HTTP and it asked for the phone number and the password. For legal purposes, I can’t tell you the name of the site, ‘my friend ‘ performed the wireshark attack, but in the form, it asked for the phone number and the password.  And you can see in the picture, the username and password entered by <b>‘my friend’</b>(saying for legal reasons).
+
+<img src="static/https_and_ssl/wireshark.PNG" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<h2><b> Here is the zoomed in image</b></h2>
+ <img src="static/https_and_ssl/wireshak1.png"  class="img-fluid" style="width:600px;height:400px; padding-top:40px; padding-bottom:40px ">
+</li><br>
+<b>I guess the above mentioned flaws are enough to discourage you from browsing any HTTP site, more importantly from inputting your bank details or even your user-name, passwords, and  phone numbers on such site. </b>
+<br>I don’t understand why people still browse unencrypted website, the website admin has no concern for the user’s privacy and moreover lack skills and resources to buy an SSL certificate ( you will learn more about SSL, later in this article, don’t worry!) to ensure basic security
+
+<h2><b>HTTPS – covering up the flaws of HTTP </b></h2>
+
+HTTPS aims towards covering up the flaws of HTTP. Seeing its increasing popularity, we can definitely assume, it has successfully done it. 
+
+<b>Here are some of its features -</b>
+<ul><br>
+<li> HTTPS encrypts all the user data using public key encryption, which by the way you can read more by <a href= "{{ url_for('public_key_encryption') }}"> clicking here.</a>
+It basically assures that the request you are sending is going to the right server and  the packets you are receiving are not being altered.</li><br>
+
+<li><b>If an attacker launches a man in the middle attack, the data he is able to capture will be encrypted and it will all just look like the noise.</b>
+Most of the banks’ website and even the popular sites like Twitter and Facebook use HTTPS, hence making it safe to input your credentials. </li></ul><br>
+
+The internet is slowly but steady adapting towards HTTPS, which is a step in right direction. With the use of public key encryption, I am expecting this protocol to last longer before someone finds a vulnerability. That being said, it’s not like HTTPS is completely secure. 
+I have just scratched the dragon’s tail in this article, you can click here to know 
+
+
+<h2><b>Misconceptions about HTTPS</b></h2>
+<br>
+<ul>
+<li><b>It is slow –</b>It is as fast as HTTP 
+<br><br>
+<li><b>Follows end to end encryption-</b>It is not based on end to end encryption, it follows public key cryptography.
+</ul>
+<br>
+Thank you guys for sticking around for this post. If you have some doubts regarding this post, you can comment down below, I will be more than happy to help you out.
+ I have posted another article which talks more about HTTP and HTTPS. 
+<br>
+<a href= "{{ url_for('How_HTTPS_work') }}"> Secure Web Browsing -Part 2 ( How does HTTPS actually work ? )</a>
+
+
+
+</div>
+			{% endblock %}

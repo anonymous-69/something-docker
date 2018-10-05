@@ -1,0 +1,64 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+			
+<h1>Installing Kali Linux as a beginner: DualBoot VS VirtualBox</h1>
+
+<img  src="static/Should_You_Install_Kali_Linux_as_a_Beginner/final.png" class="img-fluid" style="width:800px;height:600px padding-top:40px; padding-bottom:40px ">
+
+
+<p>Kali Linux, also known as the “hacker’s paradise” is a distribution which is based on Debian and is used for  advanced Penetration Testing. Kali contains several hundred tools aimed at various information security tasks, such as Penetration Testing, Forensics and Reverse Engineering Theses tools are free and some of them are even Open-source, so you can tweak the code to suit your needs. These tools are not just limited to a specific OS like Kali Linux and Parrot OS, these tools can easily be  installed on any Linux Distributions and even on Windows and Mac OS. I have personally installed many tools on Debian for packet sniffing, and they happen to work just fine . </p>
+
+<b>Now you must be thinking that this OS is so amazing, I should install it straight away. And this is the part where I say HOLD ON! </b>
+<br>
+<h2>Reasons Why People install Kali Linux </h2>
+ 
+<p>People think becoming a script Kiddie is damn easy. You just need to copy a piece of code and BAM! you hacked a website! But this is way too far from the reality. You need to a have indepth knowledge of Networking like what is GET & POST request? How the Internet really works? What are sockets?  </p>
+<br>
+<p>
+Many people who install Kali as their first Linux doesn’t even know how to use the terminal. Most of the tools like Nmap, aircrack-ng, HTTrack is available only on the command line interface.</p>
+<br>
+<p>
+Most of the beginners install Kali Linux  wanting to hack other’s Facebook accounts. And it isn’t possible that there is vulnerability whose tools is available on such a popular distro that the Facebook team overlooked. <br>
+Don’t get me wrong, Facebook is far from being unhackable(if that's a word! ) and there are attacks like fishing attacks and sslstrip. </p>
+
+<h2>Reasons to install it on the VirtualBox</h2>
+
+<ul> 
+<li><b>Always logged in as root - </b>Kali is not intended to be used as a regular OS as in Kali you tend to login as a root user, which makes sense considering 95% of the tools require <b>superuser permission </b> and by running it as a root user daily will increase your chances of getting hacked. </li>
+
+<li><b>Not knowing what you are doing- </b>Just because you have installed Kali Linux, it doesn’t mean you will be able to hack anything. Most of the times, you have to tweak some network configuration files to make a certain application run. Hence if you don’t really know what you are doing, chances are you are gonna be messing around in Kali a lot and end up <b>breaking the system.</b> <br>
+
+I am not saying you won’t be messing And when you do mess up on the virtual box, you can easily delete the whole OS and install the new one within minutes.</li>
+
+<li><b>Kali’s website recommendation-</b>  Every organization wants more users using their product, but even Kali’s website clearly refuses to use is as a general-purpose desktop.
+
+<img  src="static/Should_You_Install_Kali_Linux_as_a_Beginner/kali screenshort.png" class="img-fluid" style="width:800px;height:600px padding-top:40px; padding-bottom:40px ">
+
+
+</li>
+</ul>
+
+
+<h2>How should you go about it? </h2>
+<p>What you should do is install Ubuntu or Mint as your primary Distribution and get used to the terminal. And install Kali Linux on a Virtual Box. There are several tutorials available on the Internet regarding how to download virtual box and install an OS on it. <br>
+You might even have a hard time finding your Wifi and Bluetooth drives for Kali Linux as the chances are they will not come installed from the start  like we get on Windows or Mac OS. Even Ubuntu has a wide range of WiFi drives installed, hence making it the smart choice for beginners who are about to get their hand dirty in the world of Linux.  
+</p><br>
+<p>You can<a href= "{{ url_for('distro_you_should_choose_after_ubuntu') }}"> click here </a> to get a general overview of the different Linux distributions and get a better understanding of which distribution suits you better. 
+</p>
+<h2>Conclusion </h2>
+
+<p>Hacking is not all about using some fancy tools, it’s more about creativity and how good you are manipulating. I find the below picture very fascinating and it gives a really nice idea, about how hacking works in real Life. </p>
+<img src="static/keep_android_safe/hacking.jpg" class="img-fluid" style="width:450px;height:600px; padding-top:40px; padding-bottom:40px ">
+<p><i>
+If you have any doubt or you disagree with some something I have said, comment down below. I will try to answer each and every one of them. Thanks for sticking around till the end of the article. 
+</i></p>
+<br>
+<br>
+<p><i>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.</i></p>
+
+
+</div>
+
+{% endblock %}

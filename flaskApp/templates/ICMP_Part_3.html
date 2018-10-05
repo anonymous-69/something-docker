@@ -1,0 +1,58 @@
+{% extends "register.html" %}
+			{% block body %}
+			<div style = " font-style: Courier New ; font-size : 22px " >
+
+  <h1><b>Beginners to advance guide for ICMP -Part 3  ( Ping command)   </b></h1>
+
+Hello everyone, welcome to another part of Beginners to advance guide for ICMP. I know that both part 1 and part 2 were more on theoretical side, but I assure you, this part and the next part will be completely practical and more attention seeking,  Today we will be discussing about <b>how ping command use ICMP.</b> 
+
+  <h2><b>What on earth is ‘ping’ ?</b> </h2>
+
+The ping application directly calls ICMP command that sends an ICMP echo request to the server. 
+Lets directly move to how we can use it 
+
+<b>Step 1 –</b>open the command prompt
+
+<b>Step 2 –</b> enter the command <b>‘ ping google.com ’ </b>and press enter.  I am using Google  here, but you can use any website of your choice. If you are on Linux, then press CTRL+C to stop after it has ping 4-5 times.  
+If you are on windows, I guess it stops after pinging 4 times, but I am not sure. If it doesn’t, press  CTRL+C as we did in Linux.  
+
+<img src="static/ICMP_Part/ping.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+
+<b>icmp_seq :</b>It keeps updating the count of number of packages it has send and received back. In my case, you can see, it has sent the first packet, but didn’t get the request back. Hence it is starting from 1 and not 0 . It shows that there has been a packet drop while communicating to the network.
+The icmp_seq number from 7 directly went to 13, which shows there has been 4 packet drops. 
+<br><br>
+<b>TTL :</b> We discussed in depth about the <b>time to live (ttl)</b> in the 2nd part. It tells that the packet has made 56 jumps. 
+<br><br>
+<b>Time : </b>It tells the total time taken by the packet to reach the server and then go hack to the host in <b>milliseconds </b>
+<br><br>
+In the statics below, you can see the total packets sent and received. <b>You might be thinking that the icmp_seq is 13, but the total packets are 14, thats because the computer counts from 0. </b>
+
+
+Now I am gonna do one thing, I am gonna be running this ping command and in the middle of that, I will be rebooting by router so that you can see the error. <br><br>
+
+<img src="static/ICMP_Part/ping_reboot.png" class="img-fluid"  style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<br>
+You can see this IMCP message of <b>‘ Network is Unreachable ’</b>. And when the connection is back online, it starts sending the request again. 
+<p><i><br>
+I hope you guys like this article and gained something from this. It think, it was a light topic. If you have some doubts regarding this topic, fire them in the comment section below. 
+In the next article I will be talking about the Traceroute command which works on the UDP protocol. When I first read about it, its blew my mind. Hope to see you in the part 4. 
+
+
+
+<h3><a href= "{{ url_for('ICMP_Part_1') }}">  Beginners to advance guide for ICMP -Part 1</a></h3>
+
+<h3><a href= "{{ url_for('ICMP_Part_2') }}">   Beginners to advance guide for ICMP -Part 2   (ICMP message types)
+</a></h3>
+
+
+<h3><a href= "{{ url_for('ICMP_Part_4') }}">   Beginners to advance guide for ICMP -Part 4   ( Traceroute )</a></h3>
+
+ <br><br><br>
+<p><i>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+ </p> </i>
+</div>
+			{% endblock %}
+			

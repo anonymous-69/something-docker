@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    
+    <!-- bootstrap CSS code -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--end-->
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link type="text/css" rel="stylesheet" href={{ url_for('static', filename="assets/css/news_api.css") }} />
+   
+    <link type="text/css" rel="stylesheet" href={{ url_for('static', filename="assets/css/style.css") }} />
+    <title>news</title>
+  </head>
+  <body>
+   
+    <header id="header">
+      <div class="inner">
+        <a href= "{{ url_for('index') }}" class="logo">Boot Up the Geek</a>
+        <nav id="nav">
+          
+          <a href= "{{ url_for('linux') }}">linux</a>
+          <a href= "{{ url_for('android1') }}">Android</a>
+          <a href= "{{ url_for('hacking_tutorials') }}">Cyber Security</a>
+          <a href= "{{ url_for('news') }}">tech News</a>
+        </nav>
+        
+      </div>
+    </header>
+    <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<div id="root"></div>
+<!-- bootstrap JS code -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- ends -->
+
+
+		  <script src="static/assets/js/jquery.min.js"></script>
+
+		  <script src="static/assets/js/skel.min.js"></script>
+
+		  <script src="static/assets/js/util.js"></script>
+
+		  <script src="static/assets/js/main.js"></script>
+<script src={{ url_for('static', filename="dist/home.bundle.js") }} /> </script>
+
+
+ <!-- Footer -->
+ <section id="footer">
+  <div class="inner">
+      <header align = center>
+          <h2>You've reached the end!</h2>
+      </header>
+                 <div class="row" id = "color_footer">
+
+  <div class="col-md-6" >
+
+
+  <ul>
+    
+     <b><li><div class="grey-text text-lighten-3" >Contact: bootupthegeek@gmail.com</div></li></b>
+      <b> <li><a class="grey-text text-lighten-3" href="{{ url_for('disclamer') }}">Disclamer</a></li></b>
+  </ul>
+</div>
+<div class="col-md-6" >
+  
+  <ul>
+    <b><li><a class="grey-text text-lighten-3" href="{{ url_for('sitemap_bing') }}">Site Map</a></li></b>
+    <b><li><a class="grey-text text-lighten-3" href="{{ url_for('private_policy') }}">Privacy Policy</a></li></b>
+
+  </ul>
+</div>
+</div>
+             <div class="footer-copyright">
+<div align= left>
+<b> ©COPYRIGHT 2017 Boot Up the Geek </b>
+
+</div>
+</div>
+  </div>
+</section>
+
+
+  </body>
+</html>

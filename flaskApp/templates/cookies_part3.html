@@ -1,0 +1,60 @@
+{% extends "register.html" %}
+			{% block body %}
+			
+<div style = " font-style: Courier New ; font-size : 22px " >
+<h1><b>Cookies -Part 3 (Third party cookies vs First party cookies and Identifying cookies on a site)</b> </h1>
+
+<img src="static/cookies_part3/final.jpg"  class="img-fluid"
+style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+<p>
+The cookies, though being good at optimizing the user experience, are defamed due to the third party cookies. Cookies are primarily used for tracking the users and observe their browsing habits on the web. So what are these third party cookies? And how are they different from first party cookies?  <br><br>
+
+Before that, if you are already intimidated with this topic, don’t worry, I have allready posted two articles on beginners guide to cookies and cookie tracking. 
+</p>
+<h2><b>Brief explanation of First party cookies </b></h2>
+<p>
+This is what it is, you are sitting on your computer, and you make a request to a server, the server will provide you with the information you asked for and give you a cookie. This cookie will track you, but only the their site for better user experience.
+</p>
+<h2><b>Brief explanation about third party cookies </b></h2>
+<p>
+Suppose you visit a site like cake.com. This site will be giving you a cookie along with the information you asked for. That would be for better user experience and these cookies would only come into play only when you visit cake.com.These are the first party cookies. But on that web-page, there will be ad banners, which will be <b>hosted form completely different domains.</b> And those banners will be giving you some cookies. Those are the cookies will track you across the web. 
+</p>
+<h2><b>Third party cookies vs First party cookies </b></h2>
+<p>
+The basic difference between them, which you will find on almost every other website, is that the first party cookies track you only on their site which will provide you with a better browsing experience, whereas the third party cookies will track you across the web. They will be registering your browsing history, how much time did you spend on a web page, and if you are on a shopping websites, then what all products you checked you. Which in fact is creepy as hell.<br><br>
+
+Cookies being first or third party, depends completely on the domain you are browsing on. Suppose if you are browsing Amazon, then the cookie given by Amazon will be acting as the first party cookies, but if you are visiting Facebook and there you are presented with the products you have recently viewed on the Amazon, then amazon’s cookies are acting as third party cookies.<br><br>
+
+<b>It is more or less same as dividing the hackers into black hat and white hat,</b> both are doing the same nasty shit, one is doing for money and the other is doing for some government organization. Both have similar knowledge and using similar application for performing hack, but are being used for different purpose. <br><br>
+
+Both first party and third party cookies are present in the same folder on your hard drive.
+This is a common misconception among people, even some websites declare the cookies as scripts or a program that runs on your computer, but none of them is a script, they are just some unencrypted text. </p>
+
+<h2><b>How to identify third party cookies given by a site? </b></h2>
+<p>
+<b>Step 1  –</b> right click and select inspect element on the site , you want to view cookies off. </p>
+<img src="static/cookies_part3/step1.png" class="img-fluid" style="width:800px;height:500px; padding-top:40px; padding-bottom:40px ">
+<br>
+<b>Step 2 –</b> Go to application and then go to storage in the left
+<img src="static/cookies_part3/step2.png"  class="img-fluid" style="width:700px;height:500px; padding-top:40px; padding-bottom:40px ">
+<p>
+<b>Step 3 –</b> Click on cookies </p>
+<img src="static/cookies_part3/step3.png" class="img-fluid" style="width:800px;height:500px; padding-top:40px; padding-bottom:40px; padding-right:40px">
+<br>
+ 
+<b>What I have shown (in the picture below ) is a torrent site, piratebay and it has cookies coming from two different domains. Top one is the domain of the site I have requested and the second one is some other domain,  which is giving the third party cookies .(If you can't see the name of the cookies in the below image, zoom in the page ) </b>
+<br>
+
+<img src="static/cookies_part3/pirate_bay_cookies.png" class="img-fluid" style="width:800px;height:300px; padding-top:40px; padding-bottom:40px ">
+<br>
+
+<p><i>
+If you have some trouble understanding some topic, leave a comment below. I would happy to hear from all you guys. <br> 
+Thank you guys for sticking around in this series, I hope to see you in more of my posts.
+Have a nice day. Cheers!<br> 
+<br><br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i></p>
+</div>
+
+{% endblock %}

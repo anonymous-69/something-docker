@@ -1,0 +1,17 @@
+<!-- In the feedback form , it is used to display that the validator option is not met -->
+
+{% macro render_field(field) %}
+
+	<dt>{{ field.label }}
+	<dd>{{ field(**kwargs) | safe }}
+	{% if field.errors  %}
+		<ul class = errors>
+		{% for error in field.errors %}
+		<li> {{ error }} </li>
+	{% endfor %}
+	
+	</ul>
+	{% endif %}
+	</dd>
+	
+{% endmacro %}

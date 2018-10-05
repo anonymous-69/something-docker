@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<meta charset="utf-8" />
+		<title> Boot Up the Geek </title> 
+			
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		<!-- for jqiery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+		
+		
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+              <!-- for adding the pic in the tab -->
+
+		
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		
+	
+		<style type = "text/css">
+
+			.container {
+				width: 80%;     /* this is the width of the page , like the page is centered in between , we can increase and decrease that */
+				margin: 0 auto;
+			}
+
+			header {
+				background: #9D54F5;      
+			  	position : fixed;
+				width : 100%;
+				z-index : 999;
+				 
+			}
+
+			header::after {
+			  content: '';
+			  display: table;
+			  clear: both;
+			}
+
+			nav {
+			  float: left;
+				font-size: 10px;
+				opacity : 1 ;
+
+
+			}
+
+			nav ul {
+			  margin: 0;
+			  padding: 0;
+			  list-style: none;
+			}
+
+			nav li {
+			  display: inline-block;
+			  margin-left: 60px;
+			  padding-top: 8px;
+				position: relative;
+
+			  
+			}
+			/* for the text you see in the nav bar */
+			
+			nav a {
+			  color: #000000;
+			  text-decoration: none;
+			  text-transform: uppercase;
+			  font-size: 20px;
+			  
+			}
+			
+			
+			
+			
+			
+			nav a:hover {
+			  color: #000;
+			}
+				
+			/*this code is for the black lines you see on the top of when you place your mouse on the option */
+			
+			nav a::before {
+			  content: '';
+			  display: block;
+			  height: 5px;
+			  background-color: #444;
+
+			  position: absolute;
+			  top: 0;
+			  width: 0%;
+
+			  transition: all ease-in-out 250ms;
+			}
+
+			nav a:hover::before {
+			  width: 100%;
+			}
+
+		/* this code is for giving the image the width and height , currently this code is not in use as there is no pic (i have commented out the code for the pic below in the header ) */
+		
+				}
+			#header-bg-image {
+				height: 100vh;
+				width: 100vw ;
+			
+			
+			
+			
+			}
+
+			/* for footer */ 
+			
+			#foot {
+			background: #55d6aa;
+			padding-top:100px
+			}
+		
+		</style>
+		
+
+	</head>
+	<header>
+		
+		
+		
+ 
+		  <!-- here is the header image -->
+		
+
+	
+					<!-- this is for adding logo 
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="/">
+		  <img style="max-width:125px; margin-top: -12px;" src="{{ url_for('static', filename='logo.jpg') }}">
+		  </a>
+		</div> -->
+		
+		
+		
+		
+		
+		
+	
+		
+
+			 
+			 
+			 
+			 
+			 
+			<nav class="navbar navbar-default " id = "button" style = "position : middle ;">
+        		<div class="container-fluid">
+					
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+            </button>
+					
+							<!-- this code is for creating the nav bar and container fluid will name sure that the nav bar will take the complete page -->
+		
+		
+		<a class="navbar-brand" href="/"> 
+						<img style="max-width:125px; margin-top: -12px;" src="{{ url_for('static', filename='logo3.jpg') }}">
+		 					 </a>
+					<div class="clearfix"></div>
+					 <div class="collapse navbar-collapse" id="mainNavBar">
+            		 <ul class="nav navbar-nav">
+					
+					
+					
+					<li><B>     </B></li>
+					<li><B><a href="#">news</a></B></li>
+                    <li><B><a href="#"> Beginner's Guide </a></B></li>
+					<li><B><a href="#">Android </a></B></li>
+                    
+					
+					
+                </ul>
+					
+					
+						
+					
+					
+				
+				<ul class="nav navbar-nav navbar-right">
+				<font color="red">
+                    <li><B><a href="#"> linux  </a></B></li></font>
+					<li><B><a href="#"> phone reviews </a></B></li>
+					<li><B><a href="#"> Hacking tips </a></B></li>
+					
+			</font >		
+                </ul>
+			
+            </div> 
+					
+					
+				
+
+	</header> 
+	
+				
+				
+				
+				
+				
+	<body> 
+		
+
+		
+		
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		
+
+		
+
+		<br>
+			<br>
+		
+
+		
+	
+		
+		
+		
+		
+			
+		
+		  <!-- here is the header image 
+			    
+		 <div id="header-offset" class="clearfix"></div>
+        <div id="top-header" class="page-header header-height full-page-width">
+			
+			<img id="header-bg-image" class="header-bg full-page-width immediate"  src="{{ url_for('static', filename='4.jpg') }}" />
+		</div -->
+				
+		
+		
+<!-- _________________________________________________________________________________________________ -->		
+	<div style = " font-style: Courier New ; font-size : 22px " >	
+	<div class = "container" > 
+		<div class="row">
+			<div class="col-md-9" >
+		
+		
+
+			<a href = "GB_RAM_needed">
+			<img src="static/8GB_RAM_needed/8gb_final.png" alt="Do we really need 8GB of ram" style="width:750px;height:400px; padding-right:10px "> </a>
+			<h2><a href= "{{ url_for('GB_RAM_needed') }}"> Do you really need 6 or 8 GB of RAM  on your Smart Phones? </a></h2>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			8 GB of RAM can really make a difference, if you love to tinker around with your phone. See how can it make difference in your day to day life. 
+			</div>
+			</div>
+		
+	
+	
+	
+		
+		<div class = "col-md-3">
+		
+		8 GB of RAM can really make a difference, if you love to tinker around with your phone. See how can it make difference in your day to day life. 
+		
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	

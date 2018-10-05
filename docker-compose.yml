@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+
+  app:
+    image: myapp-node
+    build: ./nodeapp
+    user: "node"
+    working_dir: /usr/src/app
+    environment:
+      - NODE_ENV=production
+      - VIRTUAL_HOST=local.docker.nodeapp.com
+    expose:
+      - "3000"
+    command: "npm start"
+
+
+  app2:
+    image: flask_app
+    build: ./flaskApp
+    working_dir: /usr/src/python
+    environment:
+      #- NODE_ENV=production
+      - VIRTUAL_HOST=local.docker.flaskapp.com
+    expose:
+      - "5000"
+    command: "python manage.py"
+
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+
+
+

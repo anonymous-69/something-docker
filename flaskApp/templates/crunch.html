@@ -1,0 +1,61 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = " font-style: Courier New ; font-size : 22px " >
+	
+<h1><b> Generate wordlist using Crunch for password cracking.</b></h1>
+
+
+<img src="static/crunch/final.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p>Welcome back geeks, how you all doing?</p>
+<p>In this post, I will be discussing crunch and how we can use it to generate a wordlist which we can further use to crack passwords. So without wasting much time, let us hop on to this geeky journey of understanding crunch.</p>
+<h2>What is crunch?</h2>
+<p>In a nutshell, crunch is a tool that generates all the possible permutations and combinations. When you enter a specific characters of password or even a pattern that you might know. It will also calculate the number of combinations that it will generate and then you can estimate the overall time it will be consuming based on your PC&#8217;s hardware.</p>
+
+
+
+<p>You can then use the generated wordlist with tools like aircrack-ng, Rainbow Crack and john the ripper to launch a successful attack.</p>
+<h2>When and why should you use crunch?</h2>
+<p>In password cracking principles, we tend to prefer using the dictionary attack, where we essentially attempt thousands of passwords per second from a specified word list.<strong> A good wordlist contains all the common passwords that people use.</strong></p>
+<p>But if you live in a non-English-speaking country, <strong>then dictionary attack might not be helpful.</strong> You might find a wordlist, but it won&#8217;t be good enough. Hence crunch will be your best option.</p>
+<p>Sometimes, you know the person whose password you want to crack. <strong>You might know password&#8217;s length or certain characters he has used or some pattern</strong>, then crunch is indeed your go-to guy.</p>
+<h2>Installing crunch</h2>
+<p>I wouldn&#8217;t recommend using it on a VM, as crunch will be consuming a hell lot of processing power. I will be showing you, how to download it on Linux, for windows, just make a quick google search. Crunch comes preinstalled in Kali but hopefully you are not using Kali as your primary distro it is a disastrous step- <b><a href= "{{ url_for('Should_You_Install_Kali_Linux_as_a_Beginner') }}"> Click here to know why </a></b>
+<p><strong>Step 1-</strong> Download crunch by clicking <a href="https://sourceforge.net/projects/crunch-wordlist/">here</a>.  And extract it.</p>
+<p><strong>Step 2-</strong> Open the terminal and navigate to the extracted folder and give the command- <code> make &amp;&amp; make install</code></p>
+<img src="static/crunch/crunch1.png" class="img-fluid" style="width:800px;height:450px; padding-top:20px; padding-bottom:20px ">
+<p><strong>Step 3- </strong>We have installed crunch, now to verify that it works, enter the command- <code>crunch</code>.</p>
+<h2>Using crunch</h2>
+<p>Using it is quite simple, even though I will be showing you some examples for better clarification, but you can simply skimp through the man pages by typing-. <code>man crunch</code> <strong>It is quite descriptive and easy to understand.</strong></p>
+<h2>Crunch syntax</h2>
+<p><strong>crunch &lt;min_characters &gt;  &lt;max_characters&gt;  &lt;characters&gt; -p &lt;pattern&gt; -o &lt;output_file&gt;</strong></p>
+<p>OR</p>
+<p><strong>crunch &lt;min_characters &gt;  &lt;max_characters&gt;  &lt;characters&gt; -p &lt;pattern&gt; -o &lt;output_file&gt; |&lt;pass_through_application&gt;</strong></p>
+<ul>
+<li><strong>min_characters</strong>&#8211; Minimum password length.</li>
+<li><strong>max_characters- </strong>Maximum password length.<strong><br />
+</strong></li>
+<li><strong>characters- </strong>here you mention all the characters, that you think there are in password. It can be all the way from a-z and 0-9 and special characters like @, &amp;, *, $, etc.</li>
+<li><strong>Pattern- </strong>If you think that the person uses his birthday date in the password or you know a position of specific characters in password, then you can even mention that. I will be showing you one of such example below.</li>
+<li><strong>Output_file- </strong>This is the file, where all the results will be saved.</li>
+<li><strong>pass_through_application- </strong>If you want to directly pass all the results in password crackers like aircrack-ng, then you can put it there. <strong><br />
+</strong></li>
+</ul>
+<h2></h2>
+<h2><strong>Example 1 </strong></h2>
+<img src="static/crunch/crunch2.png" class="img-fluid" style="width:669px;height:230px; padding-top:20px; padding-bottom:20px ">
+<p>Here I have opted for the password size somewhere between <strong>5 to 8 characters</strong>. Then I have given input that the password has the<strong> characters from a-h and from 0-9. </strong>Then I have given the name of the text file where all the results will be saved. <strong>Crunch calculates the size of the file which is 61GB or 63173MB. </strong>It then saves the information in a text file.</p>
+<h2>Example 2</h2>
+<p>In this example, we will trying going indepth with it. I will be using patterns here. Here is the screenshot from the man pages of crunch. I will be using it.</p>
+<img src="static/crunch/crunch3.png" class="img-fluid" style="width:680px;height:140px; padding-top:5px; padding-bottom:5px ">
+<p>&nbsp;</p>
+<p>So let's suppose, I know the length of the password is 7 and the last three characters of the password are digits and the first character is in uppercase and the rest of the password is in lowercase, then I can do something like this- <code>crunch 7 7 abcdefghijklmnopqrstuvwzyz0123456789 -t ,@@@%%% -o wordlist.txt</code></p>
+<img src="static/crunch/crunch4.png" class="img-fluid" style="width:669px;height:230px; padding-top:20px; padding-bottom:20px ">
+<h2>Conclusion</h2>
+There several other patterns you can do to achieve your purpose. Again I will recommend to go through the man pages. It has given a lot of excellent examples.
+
+<strong><em>If you have any doubts, you can comment down below and I will be happy to help you out :)</em></strong>
+
+</div>
+			{% endblock %}
+			

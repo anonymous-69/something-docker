@@ -1,0 +1,97 @@
+{% extends "register.html" %}
+			{% block body %}
+
+<div style = " font-style: Courier New ; font-size : 22px " >
+
+<h1><b>How to turn on the monitor mode for capturing packets on Linux </b> </h1>
+
+<img src="static/enable_monitor_mode\final.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+<br>
+Hi fellow geeks!<br>
+<p>In one of an article, I discussed on how to  check if your wireless card supports monitor mode, but that doesn’t mean it is enable by default. You have to manually do it. Once it is changed to monitor mode, you can easily capture all the packets around you, even if they are not associated with the same access point. </p>
+
+<h2>Lets begin ….</h2>
+
+
+<b>Step 1 –</b>I would recommend becomming a root user. As all the commands require the superuser permission. If you are willing to write <b>‘sudo’</b> before ever command, that would work too, but if you forget to write, it will give you the error <b>‘command not found ’.</b>
+<br>
+<mark style = "background-color: yellow;color: red;"><b>su </b></mark>  
+<br>
+<b>Step 2 –</b>We have to install aircrack-ng 
+<br>
+<mark style = "background-color: yellow;color: red;"><b>apt-get install aircrack-ng </b></mark>
+<br>
+<b>Step 3 –</b>This command will give you the name of the interface. In my case it is <b>‘wlp3s0’. It will vary from distribution to distributions.</b> In Kali, I guess it is <b>eth0.</b> 
+Do note that in the screenshot, the mode is by default <b>managed</b>
+<br>
+<mark style = "background-color: yellow;color: red;"><b>iwconfig </b></mark>
+<br>
+<img src="static/enable_monitor_mode\iwcongif.png"  class="img-fluid" style="width:700px;height:300px; padding-top:40px; padding-bottom:40px ">
+
+<p>
+<b>Step 4 -</b>Through this command, we are trying to find all the processes all the processes that will hinder with the aircrack-ng suit, so we have will have to kill all of them.</p>
+
+<mark style = "background-color: yellow;color: red;"><b>airmon-ng check</b></mark>
+
+<img src="static/enable_monitor_mode\airmon-ng_check.png"  class="img-fluid" style="width:700px;height:300px; padding-top:40px; padding-bottom:40px ">
+
+<p><b>Step 5 –</b> There are two ways to go about killing the processes, one is killing them one by one in a specific order (otherwise they will spawn each other ) or we can use the command. 
+Do note that you have to use this below command 4-5 times, as the processes keep spawning again and again. 
+</p>
+<mark style = "background-color: yellow;color: red;"><b>airmon-ng check kill</b> </mark>
+
+<img src="static/enable_monitor_mode\airmon-ng_check_kill.png" class="img-fluid"  style="width:700px;height:450px; padding-top:40px; padding-bottom:40px ">
+<p>
+As you can see I have to do it 3 times, just to make sure all the processes were killed 
+And after I did this, the widget says ‘network manager not working’ 
+ </p>
+<img src="static/enable_monitor_mode\111.png"  class="img-fluid"v style="width:800px;height:200px; padding-top:40px; padding-bottom:40px ">
+<br>
+Step 6 – Now we need to put down the network card using the below command.
+<br><br>
+<mark style = "background-color: yellow;color: red;"><b>ifconfig wlp3s0n down </b></mark>
+<br><br>
+Step 7– This command will change the mode from manage to monitor. 
+<br><br>
+<mark style = "background-color: yellow;color: red;"><b>iwconfig  wlp3s0 mode monitor </b> </mark>
+<br><br>
+
+Now you have successfully turned on the monitor mode on your wireless card. Now you can even use wireshark to capture the traffic. 
+
+<h2><b>Verification  </b></h2>
+
+We will again use the iwconfig, and we can see the <b>“mode : Monitor”. </b>
+<br><br>
+<mark style = "background-color: yellow;color: red;"><b>iwcofig </b></mark>
+<br><br>
+
+<img src="static/enable_monitor_mode\monitor_mode_vetification.png" class="img-fluid"  style="width:700px;height:400px; padding-top:40px; padding-bottom:40px ">
+
+<p>
+<b>Things to keep in mind </b>
+<ul>
+ <li>I am using <b>Debian,</b> so that’s why I am using <b> “apt-get install “</b>. If you are on a different distribution,  you have to install using your packet manager, but the name of the applications must be same across different platforms.</li>
+
+<li><b>You have to enable it every time you boot up your system. </b>Or you can create a bash script and automate this boring process.</li>
+<li><b>If you are trying to do that on a Virtual Box, it won’t work.</b> As virtual box can’t really interact with the hardware. </li></ul>
+
+</p>
+<h2><b>Troubleshooting advice </b></h2>
+If you are facing some troubles in between, take care of the few things-
+<br><br>
+
+1) <b>Interface name will vary from distributions to distributions.</b> In my case it was wlp3s0 . Chances are yours will be different. In the step- 2, I have mentioned, how about how to know the name of your interface card.
+<br>
+2)<b> make sure you are running all the commands with sudo or become the root user using “su ”.</b>
+<br><BR><br>
+<p><i>
+If you are stuck in this processes, leave a comment below, I will be happy to help you out. If you some of you want a bash script do mention it in the comments below, I will be adding it in the article. Thanks for sticking around, hope to see you in the next article. 
+<br><br>
+<br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</i></p>
+
+
+</div >
+
+{% endblock %}

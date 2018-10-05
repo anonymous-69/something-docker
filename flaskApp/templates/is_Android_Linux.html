@@ -1,0 +1,87 @@
+{% extends "register.html" %}
+			{% block body %}
+<div style = "font-size : 22px " >
+
+<h1><b>Is Android Linux? </b></h1> 
+
+<img src="static/is_Android_Linux/final.png" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p>Many people believe its answer to be binary, <b>either it is or it’s not</b>, but the things are bit more complex here. <br>
+<b>The correct statement is “ Android is using Linux Kernel “.</b>   Now, let us break this statement to understand it better. But before that let us get our self acquaintance with some terminology which will be used here <br><br>
+
+<b>The Linux Kernel –</b> It is the core part of Android operating system. It acts as a bridge between software and the hardware. It providing services to the rest of the system and performing tasks such as managing the device’s CPU and memory. <br> 
+<br>
+You might have noticed some Android  phones perform better than other in terms of benchmarks and day to day usage despite having the same processor and RAM and similar screen resolution. <b>This depends on how the kernel is tweaked.</b> We all have come across many phones which have the flagship specs but are ruined by crappy kernels and custom android skins. This is how important good kernel tweaking is.<br><br>
+
+<b>Linux distribution –</b> Linux is the operating system you install on your PC or laptop. It has the Linux Kernel at its core. And has additional software such as  utilities, libraries and a GUI, plus pre-installed applications such as web browsers, text editors, and music players. If you have been reading the posts on this website, then it should be no brainer for you. <br>
+<b>Now that we are clear with the basic terms, LET US BEGIN!</b>
+</p>
+
+<h2><b>Android vs Linux </b></h2>
+
+                     
+<img src="static/is_Android_Linux/android_layers.jpg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p>
+<b>Different Operating systems -</b>When you boot an Android device, the Linux kernel loads just like it would on a Linux distribution, but apart from having the same Linux Kernel at their core, both have completely operation systems
+
+The Linux has GNU C Library (glibc) used on standard Linux distributions. It comes with X server like Xorg. The Linux OS has bunch of tools including like its own Terminal, desktop, compilers and apps. <br> 
+The Android on the other hand runs on the Dalvik Virtual Machine which runs all the apps in Java. It has its own libraries and apps. When you go to the software info of your device, you can see the kernel version your Phone is using.</p>
+
+<img src="static/is_Android_Linux/oneplus-5-oxygen-os-450-vs-451-w782.jpg" class="img-fluid"  style="width:250px;height:500px; padding-top:40px; padding-bottom:40px ">
+
+<p>
+Android doesn’t come with the terminal like that of the Linux out of the box. Though there are many apps like terminal emulators available on the play store but most of them are just gimmicky. You need to have root access for your phone to run the commands like “su”, “sudo” and “apt-get”. They are pretty limited on what they can do and you can’t do hacky stuff with it like unlocking your bootloader. </p>
+
+<img src="static/is_Android_Linux/20472653_1948624708726711_1563126420_o.jpg" class="img-fluid"  style="width:700px;height:300px; padding-top:40px; padding-bottom:40px ">
+
+
+<h2><b>Can you run Android Apps on Linux and vice-versa? </b></h2>
+
+<p>No Android can’t run Linux application as doesn’t include a graphical X server or all the standard GNU libraries, you can’t simply run Linux applications on Android. You have to run applications written specifically for Android i.e which are written in Java.<br><br> 
+
+Even Linux doesn’t include the Dalvik virtual machine, so it can’t run Android apps. But due to the courtesy of some great developers, we can some Android apps using Bluestacks. Theoretically what we are doing is making Dalvin run on the Linux/windows OS. I have personally used whatsApp on Desktop(of course before the launch of WhatsApp Web) using BlueStack. </p>
+
+
+<img src="static/is_Android_Linux/bluestack_os.jpg" class="img-fluid"  style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+
+  
+<h2><b>Why did Android choose to go with Linux Kernel? </b></h2>
+
+
+<b>Open source –</b>Linux kernel can be tweaked out and be used how a person desires it be used. <br><br>
+
+<b>Portability -</b>Linux runs on devices of diverse architecture. This is due to the fact that Linux is an immensely portable platform. It is fairly easy to compile Linux on various hardware! <br>
+Most parts particularly the low-level ones are written in portable C code that can be accessed and modified by manufacturer easily. This means manufacturers can pick up Android and modify it to adapt it according to their hardware requirements rather than improving the hardware to fit the software!<br><br>
+
+<b>Features -</b> Linux brings to Android some useful features. The Linux Kernel 2.6 includes these features:
+<ul>
+<li><b>Memory Management: </b>While developing for mobile devices memory handling becomes a point of great concern. When Android phones were first introduced, they ran on less 512mb of RAM and at that time Memory Management was a big deal. 
+       <li><b>Process Management: </b> Linux Kernel is responsible to start, stop and execute the program. In case of Android Linux is responsible to allocate resources to various processes that need them. </li>
+       
+       <li><b>File System Management:</b> Linux also manages the file system which in turn controls the data storage service for android device. </li>
+       
+       <li><b>User account (Security): </b>Linux kernel handles the security between application and the system. Linux takes control of authentication of users and is responsible for user management. Besides this Linux kernel is also responsible for power management and for undertaking various services like Internet search, voice communication, system logging etc.  </li>
+       </ul><br><br>
+<p> <i>
+I hoped this post, cleared some of your doubts. If you still have some query, write it in the comment section below. I will try answering some of the questions. 
+<br><br><br>
+If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.
+</p> </i>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

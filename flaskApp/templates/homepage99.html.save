@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109164644-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109164644-1');
+</script>
+		
+
+
+		<meta charset="utf-8" />
+		<title> Boot Up the Geek </title> 
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+		
+		
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		
+	
+		<style type = "text/css">
+
+			.container {
+				width: 80%;     /* this is the width of the page , like the page is centered in between , we can increase and decrease that */
+				margin: 0 auto;
+			}
+
+			header {
+				background: #9D54F5;      
+			  	position : fixed;
+				width : 100%;
+				z-index : 999;
+				 
+			}
+
+			header::after {
+			  content: '';
+			  display: table;
+			  clear: both;
+			}
+
+			nav {
+			  float: left;
+				font-size: 10px;
+				opacity : 1 ;
+
+			}
+
+			nav ul {
+			  margin: 0;
+			  padding: 0;
+			  list-style: none;
+			}
+
+			nav li {
+			  display: inline-block;
+			  margin-left: 60px;
+			  padding-top: 8px;
+				position: relative;
+
+			  
+			}
+			/* for the text you see in the nav bar */
+			
+			nav a {
+			  color: #000000;
+			  text-decoration: none;
+			  text-transform: uppercase;
+			  font-size: 20px;
+			  
+			}
+						
+			nav a:hover {
+			  color: #000;
+			}
+				
+			/*this code is for the black lines you see on the top of when you place your mouse on the option */
+			
+			nav a::before {
+			  content: '';
+			  display: block;
+			  height: 5px;
+			  background-color: #444;
+
+			  position: absolute;
+			  top: 0;
+			  width: 0%;
+
+			  transition: all ease-in-out 250ms;
+			}
+
+			nav a:hover::before {
+			  width: 100%;
+			}
+
+		/* this code is for giving the image the width and height , currently this code is not in use as there is no pic (i have commented out the code for the pic below in the header ) */
+		
+				}
+			#header-bg-image {
+				height: 100vh;
+				width: 100vw ;
+				}
+
+			/* for footer */ 
+			
+			#foot {
+			background: #ffffb3;
+			padding-top:10px;
+			color : #0000cc
+			}
+		
+		</style>
+		
+	</head>
+	<header>
+			<nav class="navbar navbar-default " id = "button" style = "position : middle ;">
+        		<div class="container-fluid">
+					
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+            </button>
+	
+		<a class="navbar-brand" href="/"> 
+						<img style="max-width:125px; margin-top: -12px;" src="{{ url_for('static', filename='logo.jpg') }}">
+		 					 </a>
+					<div class="clearfix"></div>
+					 <div class="collapse navbar-collapse" id="mainNavBar">
+            		 <ul class="nav navbar-nav">
+					
+					
+					
+					<li><B>     </B></li>
+					<li><B><a href= "{{ url_for('homepage') }}"> home</a></B></li>
+					<li><B><a href= "{{ url_for('android1') }}"> Android </a></B></li>
+                    <li><B><a href= "{{ url_for('networking1') }}">  networking</a></B></li>		
+                </ul>
+		
+				<ul class="nav navbar-nav navbar-right">
+				<font color="red">
+                  <!--  <li><B><a href="#"> news </a></B></li> -->
+				  <li><B><a href= "{{ url_for('linux') }}">  linux  </a></B></li>
+					<li><B><a href= "{{ url_for('phones') }}">  phones</a></B></li>
+					<li><B><a href= "{{ url_for('hacking_tutorials') }}">  Hacking tutorials </a></B></li>
+					</font>
+			</font >		
+                </ul>
+			
+            </div> 
+	</header> 
+	
+	<body> 
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<br>
+			<br>
+			
+	<div style = " font-style: Courier New ; font-size : 22px " >	
+	<div class = "container" > 
+		
+		{% block body %}
+
+
+		<div class="row">
+			<div class="col-md-9" >
+			<a href= "{{ url_for('GB_RAM_needed') }}">
+			<img src="static/8GB_RAM_needed/8gb_final.png" alt="Do we really need 8GB of ram" style="width:750px;height:400px; padding-right:10px "> </a>
+			<h2><a href= "{{ url_for('GB_RAM_needed') }}"> Do you really need 6 or 8 GB of RAM  on your Smart Phones? </a></h2>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			8 GB of RAM can really make a difference, if you love to tinker around with your phone. See how can it make difference in your day to day life. 
+			</div>
+			</div>
+			 
+			 <div class="col-md-3" >
+			 <hr style =  "border: none; height: 4px;color: #333; background-color: #333; " > <!-- for borders -->
+			
+			
+		<h3><b>Latest Tech News </b></h3>			
+		
+	This is a text widget. The Text Widget allows you to add text or HTML to your sidebar. You can use a text widget to display text, links, images, HTML
+		
+		<hr style =  "border: none; height: 4px;color: #333; background-color: #333; " >
+			 
+			 </div>
+	</div>
+		
+		
+	<!-- _____________________________________________________Ist columns____________________________________________________ -->	
+		<BR><BR><div align="center"><h1> <B>Engaging articles </B></h1></div>
+
+			 <!-- don't know how it is working but it is important -->
+
+        <!-- this is the first row that I am going to populate -->
+	
+		<div style="padding-top:100px; padding-bottom: 200px"> <!-- this is the code for padding the footer  -->
+        <div class="row" >
+
+            <div class="col-md-4"  >
+			 <a href= "{{ url_for('gaming_on_linux') }}">
+			<img src="static/gaming_on_linux/final.png" style="width:340px;height:200px; padding-right:10px "></a>
+			<h3><a href= "{{ url_for('gaming_on_linux') }}">  Does gaming on Linux sucks? </a></h3>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			Is gaming any good on Linux? Click here to find out! 
+			</div>
+			
+			<br>
+			<br>
+			<br>
+			<a href= "{{ url_for('fast_charging') }}">
+			<img src="static/fast_charging/final.png" style="width:340px;height:200px; padding-right:10px "></a>
+			<h2><a href= "{{ url_for('fast_charging') }}"> Your phone supports quick charge: Here is how you can enable it! </a></h2>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			Your phone probably support fast charging, even thought it doesn't support out of the box. 
+			</div>
+			<br>
+			<br>
+			<br>
+			<a href= "{{ url_for('different_de_experience') }}">
+			<img src="static/different_de_experience/KDE.png"  style="width:340px;height:200px; padding-right:10px "> <a>
+			<h2><a href= "{{ url_for('different_de_experience') }}">My Experience with different Desktop Environment  </a></h2>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			One of the many customizations that you can do with Linux is choosing a DE that suits your needs.
+			</div>
+
+			</div>
+			
+			
+<!-- ________________________________________2nd column________________________________________________________________________ -->
+			
+            <div class="col-md-5"   style="padding-right:100px" >
+			
+			
+			
+			<a href= "{{ url_for('is_your_prone_to_hacking') }}">
+			<img src="static/is_your_prone_to_hacking/hacking.jpg" style="width:340px;height:200px; padding-right:10px "></a>
+			<h2><a href= "{{ url_for('is_your_prone_to_hacking') }}"> Is your Phone Hacked?  </a></h2>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			With phone becoming more powerful, we tend to keep most of our sensitive data on our smartphones.Here is how you can make sure, if your phone is hacked.
+			</div>
+			<br>
+			<br>
+			<br>
+			<a href= "{{ url_for('Should_You_Install_Kali_Linux_as_a_Beginner') }}">
+			<img src="static/Should_You_Install_Kali_Linux_as_a_Beginner/final.png" style="width:340px;height:200px; padding-right:10px "></a>
+			<h2><a href= "{{ url_for('Should_You_Install_Kali_Linux_as_a_Beginner') }}"> Should You Install Kali Linux as a Beginner ? </a></h2>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			 Kali contains several hundred tools aimed at various information security tasks, such as Penetration Testing, Forensics and Reverse Engineering. But Should you install it as your primary disto? Lets find out!
+			</div>
+			<br>
+			<br>
+			<br>
+			<a href= "{{ url_for('end_to_end_encryption') }}">
+			<img src="static/end_to_end_encryption/final.png" style="width:340px;height:200px; padding-right:10px "> </a>
+			<h2><a href= "{{ url_for('end_to_end_encryption') }}">End to End Encryption </a></h2>
+			<div style="padding-right:100px ">  <!-- this code is important ! -->
+			Keeping you text messages protected from the eves dropper had been a  major issue for the companies like WhatsApp, Facebook Messenger. And how they overcoome is by using end-to-end encyption. 
+			</div>
+			</div>
+
+<!-- ____________________________________column on the extreem right____________________________________________________________ -->
+			
+            <div class="col-md-3" style = " font-style: Courier New ; font-size : 15px "> 
+			<h3><b>Also from Boot Up the Geek </b></h3>
+			<a href= "{{ url_for('rooting_popularity_down') }}"> 
+			
+			<ul>
+			<b><li>	Why has rooting become less popular over the years?</li>
+			</a>
+			<br>
+			
+			<a href= "{{ url_for('cookies_part1') }}"> 
+			<li>	Cookies -Part 1 (Introduction to Cookies )</li>
+			</a>
+			<br>
+			
+			<a href= "{{ url_for('end_to_end_encryption') }}"> 
+				<li>	End to End Encryption</li>
+			</a>
+			<br>
+			
+		<a href= "{{ url_for('different_de_experience') }}"> 
+			<li>	My Experience with different Desktop Environment</li>
+			</a>
+			<br>
+			
+			<a href= "{{ url_for('Should_You_Install_Kali_Linux_as_a_Beginner') }}"> 
+			<li>		Should You Install Kali Linux as a Beginner ?</li>
+			</a>
+			<br>
+			
+			<a href= "{{ url_for('VB_or_dualboot') }}"> 
+			<li>	Beginner’s guide to install Linux – VirtualBox vs DualBoot</li>
+			</a>
+			<br>
+			
+		
+			<a href= "{{ url_for('is_your_prone_to_hacking') }}"> 
+			<li>	Is your Phone Hacked?</li>
+			</a>
+			<br>
+			
+			<a href= "{{ url_for('public_key_encryption') }}"> 
+			<li>		Public Key Cryptography</li>
+			</a>
+			<br>
+			
+			
+			<a href= "{{ url_for('check_the_support_for_monitor_mode') }}"> 
+			<li>	Check if your wireless card supports monitor mode for Aircrack-ng and Wireshark?  </li>
+			</a>
+			<br>
+			
+			
+		</b>
+	
+</div>	
+</div>	
+</div>	
+</div>
+</div>
+
+			{% endblock %}
+			
+		
+		</div>	
+
+					
+<footer   id = "foot">
+          <h3 class="white-text" align = center>You've reached the end!</h3>
+            <div class="row" id = "color_footer">
+              
+            	<div class="col-md-6" >
+
+                <ul>
+                  
+                   <b><li><a class="grey-text text-lighten-3" href="#">Contact us</a></li></b>
+					<b> <li><a class="grey-text text-lighten-3" href="#">About us </a></li></b>
+                </ul>
+              </div>
+             <div class="col-md-6" >
+                
+                <ul>
+                  <b><li><a class="grey-text text-lighten-3" href="#">Terms and Conditions</a></li><b>
+                  <b><li><a class="grey-text text-lighten-3" href="#">Privacy Policy</a></li></b>
+
+                </ul>
+              </div>
+            </div>
+
+          <div class="footer-copyright">
+            <div align= left>
+           <b> ©COPYRIGHT 2017 Boot Up the Geek </b>
+            
+            </div>
+          </div>
+        </footer>
+	</div>							
+</html>

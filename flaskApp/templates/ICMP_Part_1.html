@@ -1,0 +1,99 @@
+        {% extends "register.html" %}
+			{% block body %}
+			<div style = " font-style: Courier New ; font-size : 22px " >
+
+   <h1><b>Beginners to advance guide for ICMP -Part 1 (Introduction) </b></h1>
+
+<p>Welcome my back fellow geeks! In this tutorial, I will be introducing you to the basics of ICMP and then gradually we will dig deep into this topic and learn about the ICMP service Model, some of the ICMP message types and then we will finally pave our way to the working of the ping and the traceroute commands on the terminals. </p>
+
+<h2><b>But before that…..</b></h2>
+
+It is an easy but fairly big topic, so rather than cramming everything in one article, I will be dividing it into four articles. 
+
+
+In the 1st article, we will be talking about what ICMP is and  its service model.<br> 
+The 2nd article, we will be discussing <a href= "{{ url_for('ICMP_Part_2') }}"> the different ICMP  message types. </a> <br>
+In 3rd article will be all about<a href= "{{ url_for('ICMP_Part_3') }}"> the functioning of the ping command.</a>.<br>
+In 4th article, we will be talking about the <a href= "{{ url_for('ICMP_Part_4') }}"> functioning of the traceroute command.</a><br>
+<p>This topic might seem overwhelming and boring at first, but don’t you worry, I got your back. I will be simplifying  it massively. <br>
+Not to mention, after you get through this 1st article, you will be finding the functioning of ping and traceroute commands very alluring.</p>
+
+Before further I do, lets  jump right into it! 
+ 
+<h2><b>What is ICMP? </b></h2>
+
+<p>ICMP stands for <b>Internet Control Message Protocol.</b> It is a <b>network layer protocol.</b> It communicates the network layer information between the end host and the router. It is a protocol, which basically helps us to <b>troubleshoot the network issues</b> that occur on the <b>web server.</b>  </p>
+<br>
+<p>If any router in the way can’t send a request to the server because of some technical failure, then that router will send a message to the client, mentioning the reason for that failure. 
+Unlike any other protocols, it is not for  data transferring and receiving. It is designed for routers and other components that are connected to the Internet to talk about <b>packet drops, routing and reachability issues.</b></p> 
+But ICMP can’t correct any of the errors it detects, those functions are left for the higher layer protocols like TCP and UDP. However, with the help of ICMP messages, we can troubleshoot the problem it has encountered. 
+
+<h2><b>Construction of an IPv4 packets</b></h2>
+
+Before getting into ICMP Service Model, we need to know the basics of  packages. The request that you send to the server are in the form of packets.
+Size of each packet is <b>65535 bytes and the request that you make to the server or the data that you get back from the server are  in the forms of several packets. 
+Each packet has a <b>header </b>and the <b>payload</b>(in layman’s term, <b>user data</b> ). The header contains  information like source destination,  destination address, sequence number, protocols</b> (UDP or TCP ),<b> TTL, version</b>(IPv4 or IPv6) etc. I will be explaining all these later in this article. 
+
+
+
+                           <h2><b> ICMP Server Model </b></h2>
+ 
+ICMP service model is very simple. It basically sends the reporting error message from the router to the client, mentioning the reason for the error. But it is very unreliable, as it doesn’t have any checking mechanism to verify if the error packet has received to the sender. <br><br>
+
+<b>Note:</b> I am getting away by using  phrases like  “technical fault” or “ issue with the server ” while explaining why the user gets  ICMP message. I might be doing that few more times.  But in most cases it is not just server being <b>offline</b>, there are several other issues in the network. I will be going in depth about the other error messages in the 2nd article. 
+<br><br>
+As discussed above, the packet has two parts, a header and the payload. 
+
+<h2><b>Header </b></h2>
+
+<img src="static/ICMP_Part/aa/pic1.jpg" class="img-fluid" style="width:800px;height:600px; padding-top:40px; padding-bottom:40px ">
+
+<p>I will not be discussing all of them, as some of them are not that relevant to this topic. Plus there are many websites, which have covered all of them. Hence it makes no sense covering them up.</p> 
+<br>
+<b>Version:</b> it carries the info whether it is IPv4 or IPv6. 
+<br><br>
+<b>Flags:</b> If an  IP Packet is too large to handle, these ‘flags’ tells if they can be fragmented or not. In this 3-bit flag, the MSB is always set to ‘0’.<br><br>
+
+<b>Time to Live (TTL):</b> To prevent looping of a packet in network, TTL is used. It has some set value which determines how many routers you can cross (hop). After every hop, its value is decremented by 1. So in case, if the package goes into a loop, its hop value will eventually decrease and would finally die. <br><br>
+
+<b>Protocol:</b> This tells if it is TCP or UDP. <br><br>
+
+<b>Checksum :</b> It is used to keep checksum value of entire header which is then used to check if the packet 
+
+<b>Source adress: </b>This field contains the IP address of the user.<br><br>
+
+<b>Destination address: </b>This field contains the IP address of the server, we are sending request to.  <br><br>
+
+<b>Type:</b> This tells the user, which type of error message it is. I have discussed the different types of error messages in the next section of this article. <br><br>
+
+<b>Code:</b> You can think of it as a subtype of the ‘Type’ discussed above. This takes a further step to describe the error, the user has encountered.<br><br>
+
+<b>Payload </b>
+
+Payload, also know as user data, consist of the <b>IPv4 package header.</b> This is the package, which encounters the ICMP error . Plus it has <b>first 8bytes of the IPv4 package data. </b>
+<br><br>
+<p><i>Thats it for now! In the next article, I will be talking about the some ICMP messages types, which basically tells the user , the type of error that has occurred.<br>
+I hope you didn’t find it overwhelming. If you have some doubts regarding that, post then in the comment section below. 
+
+<h3><a href= "{{ url_for('ICMP_Part_2') }}">   Beginners to advance guide for ICMP -Part 2   (ICMP message types)
+</a></h3>
+<h3><a href= "{{ url_for('ICMP_Part_3') }}">     Beginners to advance guide for ICMP -Part 3  ( Ping command)   
+
+</a></h3>
+
+
+<h3><a href= "{{ url_for('ICMP_Part_4') }}">   Beginners to advance guide for ICMP -Part 4   ( Traceroute )</a></h3>
+
+ <br><br><br>
+
+
+
+</i></p>
+
+
+<p><i>If you want to recommend me another topic or there is something else you want to share, you can do so by filling the form below the comment section.</i></p>
+
+
+</div>
+			{% endblock %}
+			
